@@ -1,16 +1,26 @@
-# This is a sample Python script.
+import os
+import requests
+from bs4 import BeautifulSoup
+import json
+import time
+from playwright.sync_api import sync_playwright, Playwright
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def run(playwright: Playwright):
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page = context.new_page()
 
+    page.goto("https://www.qconcursos.com/questoes-do-enem/questoes")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    page.wait_for_selector(".q-questions-list", timeout=15000)
 
+    lista = page.locator(".q-questions-list")
+    print(f"Lista encontrada? {lista.count() > 0}")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    itens = lista.locator(".q-question-item")
+    print(f"Itens na lista: {itens.count()}")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    browser.close()
+
+with sync_playwright() as playwright:
+    run(playwright)

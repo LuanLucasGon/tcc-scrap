@@ -24,6 +24,15 @@ def countItens(questionsList):
     items = questionsList.locator(".q-question-item")
     return items.count()
 
+def printQuestions(questionsList):
+    items = questionsList.locator(".q-question-item")
+    totalItems = items.count()
+
+    for i in range (totalItems):
+        card = items.nth(i)
+        questionTexxt = card.locator(".q-question-body").inner_text().strip()
+        print(f"Question {i+1}: {questionTexxt}")
+
 def run(playwright: Playwright):
     browser, page = openBrowser()
     loadPage(page)
@@ -33,6 +42,8 @@ def run(playwright: Playwright):
 
     totalItems = countItens(questionsList)
     print(f"Itens na lista: {totalItems}")
+
+    printQuestions(questionsList)
 
     browser.close()
 

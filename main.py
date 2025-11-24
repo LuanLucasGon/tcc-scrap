@@ -5,22 +5,37 @@ import json
 import time
 from playwright.sync_api import sync_playwright, Playwright
 
-def run(playwright: Playwright):
+URL_ENEM = "https://www.qconcursos.com/questoes-do-enem/questoes"
+
+def openBrowser():
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
+    return browser, page
 
-    page.goto("https://www.qconcursos.com/questoes-do-enem/questoes")
-
+def loadPage(page):
+    page.goto(URL_ENEM)
     page.wait_for_selector(".q-questions-list", timeout=15000)
 
-    lista = page.locator(".q-questions-list")
-    print(f"Lista encontrada? {lista.count() > 0}")
+def getQuestionList(page):
+    return page.locator(".q-questions-list")
 
-    itens = lista.locator(".q-question-item")
-    print(f"Itens na lista: {itens.count()}")
+def countItens(questionsList):
+    items = questionsList.locator(".q-question-item")
+    return items.count()
+
+def run(playwright: Playwright):
+    browser, page = openBrowser()
+    loadPage(page)
+
+    questionsList = getQuestionList(page)
+    print(f"Lista encontrada? {questionsList.count() > 0}")
+
+    totalItems = countItens(questionsList)
+    print(f"Itens na lista: {totalItems}")
 
     browser.close()
 
-with sync_playwright() as playwright:
-    run(playwright)
+if __name__ == "__main__":
+    with sync_playwright() as playwright:
+        run(playwright)

@@ -1,4 +1,6 @@
 import os
+import re
+
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -33,6 +35,9 @@ def printQuestions(questionsList):
         questionTexxt = card.locator(".q-question-body").inner_text().strip()
         print(f"Question {i+1}: {questionTexxt}")
 
+def extractQuestionEnunciation(card):
+    return card.locator(".q-question-body .q-question-enunciation").inner_text().strip()
+
 def extractAlternative(option):
     letter = option.locator("span.q-option-item").inner_text().strip()
     text = option.locator("div.q-item-enum.js-alternative-content").inner_text().strip()
@@ -59,10 +64,8 @@ def extractQuestions(questionList):
     questionItems = questionList.locator(".q-question-item")
 
     for card in questionItems.all():
-        questionText = card.locator(".q-question-body").inner_text().strip()
-
         questions.append({
-            "text": questionText,
+            "enunciation": extractQuestionEnunciation(card),
             "alternatives": extractAlternatives(card),
         })
 

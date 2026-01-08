@@ -33,18 +33,37 @@ def printQuestions(questionsList):
         questionTexxt = card.locator(".q-question-body").inner_text().strip()
         print(f"Question {i+1}: {questionTexxt}")
 
-def extractQuestions(questionList):
-    items = questionList.locator(".q-question-item")
-    totalItems = items.count()
+def extractAlternative(option):
+    letter = option.locator("span.q-option-item").inner_text().strip()
+    text = option.locator("div.q-item-enum.js-alternative-content").inner_text().strip()
+    return letter, text
 
+def extractAlternatives(card):
+    alternatives = {}
+
+    optionLabels = card.locator(
+        ".q-question-options label.q-radio-button.js-choose-alternative"
+    )
+
+    for option in optionLabels.all():
+        letter, text = extractAlternative(option)
+
+        if letter:
+            alternatives[letter] = text
+
+    return alternatives
+
+def extractQuestions(questionList):
     questions = []
 
-    for i in range (totalItems):
-        card = items.nth(i)
-        questionTexxt = card.locator(".q-question-body").inner_text().strip()
+    questionItems = questionList.locator(".q-question-item")
+
+    for card in questionItems.all():
+        questionText = card.locator(".q-question-body").inner_text().strip()
 
         questions.append({
-            "text": questionTexxt,
+            "text": questionText,
+            "alternatives": extractAlternatives(card),
         })
 
     return questions

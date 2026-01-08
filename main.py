@@ -39,20 +39,26 @@ def extractQuestionEnunciation(card):
     return card.locator(".q-question-body .q-question-enunciation").inner_text().strip()
 
 def extractAssociatedText(card):
-    collapseContent = card.locator('.q-question-text div[id$="-text"]')
-    if collapseContent.count() == 0:
+    content = card.locator('.q-question-body .q-question-text div[id^="question-"][id$="-text"]')
+    if content.count() == 0:
         return ""
 
-    paragraphs = collapseContent.locator("p").all()
-    if not paragraphs:
-        text = collapseContent.text_content() or ""
-        return text.strip()
-
     parts = []
-    for p in paragraphs:
-        t = (p.text_content() or "").strip()
-        if t:
-            parts.append(t)
+
+    blocks = content.first.locator(":scope > div").all()
+    for block in blocks:
+        hasImage = block.locator("img").count() > 0
+        text = (block.text_content() or "").replace("\u00a0", " ").strip()
+
+        if text:
+            parts.append(text)
+
+        if hasImage:
+            src = (block.locator("img").first.get_attribute("src") or "").strip()
+            if src:
+                parts.append(f"[IMAGE] {src}")
+            else:
+                parts.append("[IMAGE]")
 
     return "\n".join(parts).strip()
 
@@ -104,8 +110,6 @@ def run(playwright: Playwright):
 
     totalItems = countItens(questionsList)
     print(f"Itens na lista: {totalItems}")
-
-    printQuestions(questionsList)
 
     questions = extractQuestions(questionsList)
     saveToJson(questions, "questions.json")

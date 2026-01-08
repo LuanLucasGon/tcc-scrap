@@ -38,6 +38,24 @@ def printQuestions(questionsList):
 def extractQuestionEnunciation(card):
     return card.locator(".q-question-body .q-question-enunciation").inner_text().strip()
 
+def extractAssociatedText(card):
+    collapseContent = card.locator('.q-question-text div[id$="-text"]')
+    if collapseContent.count() == 0:
+        return ""
+
+    paragraphs = collapseContent.locator("p").all()
+    if not paragraphs:
+        text = collapseContent.text_content() or ""
+        return text.strip()
+
+    parts = []
+    for p in paragraphs:
+        t = (p.text_content() or "").strip()
+        if t:
+            parts.append(t)
+
+    return "\n".join(parts).strip()
+
 def extractAlternative(option):
     letter = option.locator("span.q-option-item").inner_text().strip()
     text = option.locator("div.q-item-enum.js-alternative-content").inner_text().strip()
@@ -65,6 +83,7 @@ def extractQuestions(questionList):
 
     for card in questionItems.all():
         questions.append({
+            "associatedText": extractAssociatedText(card),
             "enunciation": extractQuestionEnunciation(card),
             "alternatives": extractAlternatives(card),
         })

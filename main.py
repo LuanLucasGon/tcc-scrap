@@ -64,8 +64,20 @@ def extractAssociatedText(card):
 
 def extractAlternative(option):
     letter = option.locator("span.q-option-item").inner_text().strip()
-    text = option.locator("div.q-item-enum.js-alternative-content").inner_text().strip()
-    return letter, text
+
+    content = option.locator("div.q-item-enum.js-alternative-content").first
+
+    text = (content.text_content() or "").replace("\u00a0", " ").strip()
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    normalizedText = "\n".join(lines).strip()
+
+    images = []
+    for img in content.locator("img").all():
+        src = (img.get_attribute("src") or "").strip()
+        if src:
+            images.append(src)
+
+    return letter, normalizedText, images
 
 def extractAlternatives(card):
     alternatives = {}
@@ -75,10 +87,15 @@ def extractAlternatives(card):
     )
 
     for option in optionLabels.all():
-        letter, text = extractAlternative(option)
+        letter, text, images = extractAlternative(option)
 
-        if letter:
-            alternatives[letter] = text
+        if not letter:
+            continue
+
+        alternatives[letter] = {
+            "text": text,
+            "images": images,
+        }
 
     return alternatives
 

@@ -5,8 +5,8 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from db.database import Base, get_database_url
-from db import models  # noqa: F401  (ensure models are registered on Base.metadata)
+from infra.database import Base, get_database_url
+from questions.entity import questao  # noqa: F401  (ensure models are registered on Base.metadata)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

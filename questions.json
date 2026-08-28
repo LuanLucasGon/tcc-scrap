@@ -1,17 +1,17 @@
 [
     {
-        "questionId": "Q3761165",
+        "question_id": "Q3761165",
         "subject": "História",
         "topics": [
             "História Geral",
             "Imperialismo e Colonialismo do século XIX"
         ],
         "year": "2025",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Em 1914, uma expedição estudantil saiu da Rússia em direção à América do Sul, sendo considerada a segunda campanha científica da Rússia no continente depois da longa viagem do barão Langsdorff pelo interior do Brasil na primeira metade do século XIX. O empreendimento foi enviado pelo Museu de Antropologia e Etnografia de São Petersburgo e integrado por cinco jovens cientistas, sendo dois zoólogos, dois etnógrafos e um antropólogo, cujo objetivo era a coleta de material de valor biológico e etnográfico para compor coleções nas instituições que participaram de seu financiamento. A expedição passou por países como Brasil, Paraguai e Argentina, resultando em amplo material manuscrito e algumas publicações, além dos objetos coletados.\nCARNEIRO, L. A. F. A Rússia no Brasil do início do século XX.\nRio de Janeiro: Casa de Oswaldo Cruz, 2015 (adaptado).",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Em 1914, uma expedição estudantil saiu da Rússia em direção à América do Sul, sendo considerada a segunda campanha científica da Rússia no continente depois da longa viagem do barão Langsdorff pelo interior do Brasil na primeira metade do século XIX. O empreendimento foi enviado pelo Museu de Antropologia e Etnografia de São Petersburgo e integrado por cinco jovens cientistas, sendo dois zoólogos, dois etnógrafos e um antropólogo, cujo objetivo era a coleta de material de valor biológico e etnográfico para compor coleções nas instituições que participaram de seu financiamento. A expedição passou por países como Brasil, Paraguai e Argentina, resultando em amplo material manuscrito e algumas publicações, além dos objetos coletados.\nCARNEIRO, L. A. F. A Rússia no Brasil do início do século XX.\nRio de Janeiro: Casa de Oswaldo Cruz, 2015 (adaptado).",
         "enunciation": "Além do significado científico, o evento mencionado conectava-se a um projeto nacionalista de caráter",
         "alternatives": {
             "A": {
@@ -37,18 +37,18 @@
         }
     },
     {
-        "questionId": "Q3761255",
+        "question_id": "Q3761255",
         "subject": "Matemática",
         "topics": [
             "Álgebra",
             "Progressões"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Quatro amigos, cada um com 100 moedas, criaram um jogo, \nno qual cada um assume uma das quatro posições, 1, 2, 3 ou 4, \nindicadas na figura, e nela permanece até o final.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.180.jpeg\nO desenvolvimento do jogo se dá em rodadas e, em todas \nelas, cada jogador transfere e recebe uma quantidade de moedas, \nda seguinte maneira:\n• o jogador na posição 1 transfere 1 moeda para o jogador \nna posição 2;\n• o jogador na posição 2 transfere 2 moedas para o jogador \nna posição 3;\n• o jogador na posição 3 transfere 3 moedas para o jogador \nna posição 4;\n• o jogador na posição 4 transfere 4 moedas para o jogador \nna posição 1, completando a rodada.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Quatro amigos, cada um com 100 moedas, criaram um jogo, \nno qual cada um assume uma das quatro posições, 1, 2, 3 ou 4, \nindicadas na figura, e nela permanece até o final.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.180.jpeg\nO desenvolvimento do jogo se dá em rodadas e, em todas \nelas, cada jogador transfere e recebe uma quantidade de moedas, \nda seguinte maneira:\n• o jogador na posição 1 transfere 1 moeda para o jogador \nna posição 2;\n• o jogador na posição 2 transfere 2 moedas para o jogador \nna posição 3;\n• o jogador na posição 3 transfere 3 moedas para o jogador \nna posição 4;\n• o jogador na posição 4 transfere 4 moedas para o jogador \nna posição 1, completando a rodada.",
         "enunciation": "Ao final da rodada n, qual é a expressão algébrica que representa o número de moedas do jogador na posição 1?",
         "alternatives": {
             "A": {
@@ -74,18 +74,18 @@
         }
     },
     {
-        "questionId": "Q3761254",
+        "question_id": "Q3761254",
         "subject": "Física",
         "topics": [
             "Conteúdos Básicos",
             "Ótica"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "A luminância de um objeto é a grandeza que descreve a \nquantidade de luz produzida ou refletida por sua superfície. \nEla está definida como a razão entre a intensidade luminosa, \nmedida em candela (cd), e o quadrado da distância do objeto \naté o foco de luz, medida em metro (m).",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "A luminância de um objeto é a grandeza que descreve a \nquantidade de luz produzida ou refletida por sua superfície. \nEla está definida como a razão entre a intensidade luminosa, \nmedida em candela (cd), e o quadrado da distância do objeto \naté o foco de luz, medida em metro (m).",
         "enunciation": "A unidade de medida da luminância de um objeto é",
         "alternatives": {
             "A": {
@@ -121,17 +121,17 @@
         }
     },
     {
-        "questionId": "Q3761253",
+        "question_id": "Q3761253",
         "subject": "Matemática",
         "topics": [
             "Probabilidade"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Três dados cúbicos, com faces numeradas de 1 a 6, foram \nutilizados em um jogo. Artur escolheu dois dados, e João \nficou com o terceiro. O jogo consiste em ambos lançarem \nseus dados, observarem os números nas faces voltadas para \ncima e compararem o maior número obtido por Artur com \no número obtido por João. Vence o jogador que obtiver o \nmaior número. Em caso de empate, a vitória é de João.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Três dados cúbicos, com faces numeradas de 1 a 6, foram \nutilizados em um jogo. Artur escolheu dois dados, e João \nficou com o terceiro. O jogo consiste em ambos lançarem \nseus dados, observarem os números nas faces voltadas para \ncima e compararem o maior número obtido por Artur com \no número obtido por João. Vence o jogador que obtiver o \nmaior número. Em caso de empate, a vitória é de João.",
         "enunciation": "O jogador que tem a maior probabilidade de vitória é",
         "alternatives": {
             "A": {
@@ -167,18 +167,18 @@
         }
     },
     {
-        "questionId": "Q3761252",
+        "question_id": "Q3761252",
         "subject": "Matemática",
         "topics": [
             "Geometria Plana",
             "Geometria Espacial"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "A figura ilustra o projeto visual para confecção de uma \nmedalha comemorativa, com a forma de um cilindro circular \nreto, de diâmetro 6 cm e espessura 3 mm.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177.jpeg\nA figura ABCD tem a forma de um quadrado e é a base de \num prisma que atravessa toda a medalha. A região da medalha \nexterna a esse prisma será cunhada em ouro. Pretende-se \ncunhar 100 dessas medalhas.\nConsidere 3,1 como valor aproximado para\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177_2.jpeg",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "A figura ilustra o projeto visual para confecção de uma \nmedalha comemorativa, com a forma de um cilindro circular \nreto, de diâmetro 6 cm e espessura 3 mm.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177.jpeg\nA figura ABCD tem a forma de um quadrado e é a base de \num prisma que atravessa toda a medalha. A região da medalha \nexterna a esse prisma será cunhada em ouro. Pretende-se \ncunhar 100 dessas medalhas.\nConsidere 3,1 como valor aproximado para\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177_2.jpeg",
         "enunciation": "Qual é o volume de ouro, em centímetro cúbico, necessário para a confecção dessas medalhas?",
         "alternatives": {
             "A": {
@@ -204,17 +204,17 @@
         }
     },
     {
-        "questionId": "Q3761251",
+        "question_id": "Q3761251",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "A final de um campeonato de futebol foi disputada em 2 tempos \nregulamentares, de 45 minutos cada, sem acréscimos, com uma \nprorrogação de 30 minutos, também sem acréscimos. Um jogador \nentrou no início do segundo tempo, com um equipamento para \nmedir a distância percorrida durante sua participação no jogo. \nAo final do segundo tempo regulamentar, esse jogador havia \npercorrido 4,5 km. Ele manteve na prorrogação a mesma velocidade \nmédia que havia mantido no segundo tempo regulamentar.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "A final de um campeonato de futebol foi disputada em 2 tempos \nregulamentares, de 45 minutos cada, sem acréscimos, com uma \nprorrogação de 30 minutos, também sem acréscimos. Um jogador \nentrou no início do segundo tempo, com um equipamento para \nmedir a distância percorrida durante sua participação no jogo. \nAo final do segundo tempo regulamentar, esse jogador havia \npercorrido 4,5 km. Ele manteve na prorrogação a mesma velocidade \nmédia que havia mantido no segundo tempo regulamentar.",
         "enunciation": "A distância percorrida por esse jogador durante sua participação na partida, em quilômetro, foi",
         "alternatives": {
             "A": {
@@ -240,18 +240,18 @@
         }
     },
     {
-        "questionId": "Q3761250",
+        "question_id": "Q3761250",
         "subject": "Raciocínio Lógico",
         "topics": [
             "Análise Combinatória em Raciocínio Lógico",
             "Raciocínio Matemático"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Um pai comprou oito presentes diferentes (dentre os \nquais, uma bicicleta e um celular) para dar a seus três filhos. \nEle pretende distribuir os presentes de modo que o filho \nmais velho e o mais novo recebam três presentes cada um, \ne o do meio receba os dois presentes restantes. O mais velho \nganhará, entre seus presentes, ou uma bicicleta ou um celular, \nmas não ambos.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Um pai comprou oito presentes diferentes (dentre os \nquais, uma bicicleta e um celular) para dar a seus três filhos. \nEle pretende distribuir os presentes de modo que o filho \nmais velho e o mais novo recebam três presentes cada um, \ne o do meio receba os dois presentes restantes. O mais velho \nganhará, entre seus presentes, ou uma bicicleta ou um celular, \nmas não ambos.",
         "enunciation": "De quantas maneiras distintas a distribuição dos presentes pode ser feita?",
         "alternatives": {
             "A": {
@@ -277,17 +277,17 @@
         }
     },
     {
-        "questionId": "Q3761249",
+        "question_id": "Q3761249",
         "subject": "Matemática",
         "topics": [
             "Álgebra"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Um carro que custa 60 mil reais é comercializado por uma \nrevendedora que oferece duas opções de pagamento, todas \nsem entrada e sem juros:\n• opção 1: pagamento em n parcelas iguais;\n• opção 2: pagamento em 6 parcelas a mais do que na \nopção 1 e, com isso, o valor de cada parcela se torna \nR$ 500,00 menor do que o valor da parcela na opção 1.\nNas duas opções de pagamento, o valor total a ser pago \npelo carro é o mesmo.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Um carro que custa 60 mil reais é comercializado por uma \nrevendedora que oferece duas opções de pagamento, todas \nsem entrada e sem juros:\n• opção 1: pagamento em n parcelas iguais;\n• opção 2: pagamento em 6 parcelas a mais do que na \nopção 1 e, com isso, o valor de cada parcela se torna \nR$ 500,00 menor do que o valor da parcela na opção 1.\nNas duas opções de pagamento, o valor total a ser pago \npelo carro é o mesmo.",
         "enunciation": "Qual é a quantidade n de parcelas contidas na opção 1 de pagamento?",
         "alternatives": {
             "A": {
@@ -313,17 +313,17 @@
         }
     },
     {
-        "questionId": "Q3761248",
+        "question_id": "Q3761248",
         "subject": "Matemática",
         "topics": [
             "Geometria Plana"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Em uma cidade, será construído um túnel que atravessa uma \nmontanha para facilitar o trânsito de automóveis e bicicletas. \nDois projetos foram elaborados e os esquemas com as vistas \nfrontais desses projetos são apresentados na figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173.jpeg\nO Projeto 1 conta com dois túneis, um exclusivo para \nbicicletas e o outro, para automóveis. O Projeto 2 conta com \num único túnel, com espaços reservados para o trânsito exclusivo \nde bicicletas e automóveis. Nos dois projetos, os túneis têm o \nformato de semicilindro reto de mesma extensão, com vias de \nida e volta para os dois tipos de veículos, separados por muretas.\nO projeto a ser aprovado será aquele que apresentar a \nmenor área da seção transversal, pois implicará menor volume \nde material retirado da montanha.\nConsidere 3 como aproximação para  e desconsidere as \nespessuras das muretas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173_2.jpeg",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Em uma cidade, será construído um túnel que atravessa uma \nmontanha para facilitar o trânsito de automóveis e bicicletas. \nDois projetos foram elaborados e os esquemas com as vistas \nfrontais desses projetos são apresentados na figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173.jpeg\nO Projeto 1 conta com dois túneis, um exclusivo para \nbicicletas e o outro, para automóveis. O Projeto 2 conta com \num único túnel, com espaços reservados para o trânsito exclusivo \nde bicicletas e automóveis. Nos dois projetos, os túneis têm o \nformato de semicilindro reto de mesma extensão, com vias de \nida e volta para os dois tipos de veículos, separados por muretas.\nO projeto a ser aprovado será aquele que apresentar a \nmenor área da seção transversal, pois implicará menor volume \nde material retirado da montanha.\nConsidere 3 como aproximação para  e desconsidere as \nespessuras das muretas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173_2.jpeg",
         "enunciation": "O projeto a ser aprovado é",
         "alternatives": {
             "A": {
@@ -349,17 +349,17 @@
         }
     },
     {
-        "questionId": "Q3761247",
+        "question_id": "Q3761247",
         "subject": "Matemática",
         "topics": [
             "Funções"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Um empresário utiliza máquinas cuja pressão interna P, \nem atmosfera, depende do tempo contínuo de utilização t, em \nhora, e de um parâmetro positivo K, que define o modelo da \nmáquina, segundo a expressão:\nP = 4 ⋅ log[−K ⋅ (t + 1) ⋅ (t − 19)]\nO fabricante dessas máquinas recomenda ao usuário \nque a pressão interna desse tipo de máquina não ultrapasse \n10 atmosferas durante seu funcionamento.\nO empresário pretende comprar novas máquinas desse \ntipo que deverão funcionar, diariamente, por um período \ncontínuo de 10 horas. Para isso, precisa definir o modelo de \nmáquina a ser adquirida escolhendo o maior valor possível \ndo parâmetro K, atendendo à recomendação do fabricante.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Um empresário utiliza máquinas cuja pressão interna P, \nem atmosfera, depende do tempo contínuo de utilização t, em \nhora, e de um parâmetro positivo K, que define o modelo da \nmáquina, segundo a expressão:\nP = 4 ⋅ log[−K ⋅ (t + 1) ⋅ (t − 19)]\nO fabricante dessas máquinas recomenda ao usuário \nque a pressão interna desse tipo de máquina não ultrapasse \n10 atmosferas durante seu funcionamento.\nO empresário pretende comprar novas máquinas desse \ntipo que deverão funcionar, diariamente, por um período \ncontínuo de 10 horas. Para isso, precisa definir o modelo de \nmáquina a ser adquirida escolhendo o maior valor possível \ndo parâmetro K, atendendo à recomendação do fabricante.",
         "enunciation": "O maior valor a ser escolhido para K é",
         "alternatives": {
             "A": {
@@ -389,18 +389,18 @@
         }
     },
     {
-        "questionId": "Q3761246",
+        "question_id": "Q3761246",
         "subject": "Matemática",
         "topics": [
             "Geometria Plana",
             "Geometria Espacial"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Um confeiteiro passou a produzir tortas em formato de \ncilindro circular reto, com raio da base variando entre 12 cm e \n16 cm e altura de 6 cm. Essas tortas deverão ser embaladas em \ncaixas com formato de prisma reto de base quadrada, de modo \nque seja possível acomodar a torta em seu interior e ainda restar \npelo menos 1 cm de distância entre a torta e as superfícies internas \nda caixa, lateral e superior. Ele dispõe, originalmente, de caixas \nno formato pretendido, cujas dimensões internas são 14 cm de \ncomprimento do lado da base e 7 cm de altura, que não atendem \nàs suas necessidades. Portanto, ele comprará novas caixas, com \no mesmo formato das caixas originais, mas com comprimento do \nlado da base maior, que sejam adequadas para embalar todos \nos tipos de torta que produz.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Um confeiteiro passou a produzir tortas em formato de \ncilindro circular reto, com raio da base variando entre 12 cm e \n16 cm e altura de 6 cm. Essas tortas deverão ser embaladas em \ncaixas com formato de prisma reto de base quadrada, de modo \nque seja possível acomodar a torta em seu interior e ainda restar \npelo menos 1 cm de distância entre a torta e as superfícies internas \nda caixa, lateral e superior. Ele dispõe, originalmente, de caixas \nno formato pretendido, cujas dimensões internas são 14 cm de \ncomprimento do lado da base e 7 cm de altura, que não atendem \nàs suas necessidades. Portanto, ele comprará novas caixas, com \no mesmo formato das caixas originais, mas com comprimento do \nlado da base maior, que sejam adequadas para embalar todos \nos tipos de torta que produz.",
         "enunciation": "A aresta da base das novas caixas deve ser, no mínimo, quantos centímetros maior do que a das caixas originais?",
         "alternatives": {
             "A": {
@@ -426,18 +426,18 @@
         }
     },
     {
-        "questionId": "Q3761245",
+        "question_id": "Q3761245",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas",
             "Geometria Espacial"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Uma caixa de descarga, acoplada a um vaso sanitário, tem \na forma de paralelepípedo reto retângulo cujas dimensões \ninternas da base são 2,5 dm e 1,5 dm. Nessa caixa há uma boia \nque interrompe o abastecimento quando a altura da coluna de \nágua atinge 2 dm, conforme a figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.170.jpeg\nA cada acionamento da descarga, todo o volume de \nágua contida na caixa é despejado no vaso. Para reduzir o \nvolume de água despejado a cada acionamento, uma pessoa \ncolocará, no interior dessa caixa, garrafas de 300 mL, cheias \nde areia e tampadas, de modo a ficarem submersas quando \no abastecimento for interrompido.\nPara garantir o funcionamento eficiente, o mínimo de água \ndespejada a cada acionamento deve ser de 5 L.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Uma caixa de descarga, acoplada a um vaso sanitário, tem \na forma de paralelepípedo reto retângulo cujas dimensões \ninternas da base são 2,5 dm e 1,5 dm. Nessa caixa há uma boia \nque interrompe o abastecimento quando a altura da coluna de \nágua atinge 2 dm, conforme a figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.170.jpeg\nA cada acionamento da descarga, todo o volume de \nágua contida na caixa é despejado no vaso. Para reduzir o \nvolume de água despejado a cada acionamento, uma pessoa \ncolocará, no interior dessa caixa, garrafas de 300 mL, cheias \nde areia e tampadas, de modo a ficarem submersas quando \no abastecimento for interrompido.\nPara garantir o funcionamento eficiente, o mínimo de água \ndespejada a cada acionamento deve ser de 5 L.",
         "enunciation": "A quantidade máxima de garrafas que serão colocadas nessa caixa, garantindo um funcionamento eficiente, é igual a",
         "alternatives": {
             "A": {
@@ -463,17 +463,17 @@
         }
     },
     {
-        "questionId": "Q3761244",
+        "question_id": "Q3761244",
         "subject": "Matemática",
         "topics": [
             "Análise de Tabelas e Gráficos"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "A produtividade de soja em uma área cultivada é a média da quantidade de sacas de 50 quilogramas que são produzidas \npor hectare. O quadro apresenta a área cultivada e a produtividade de soja em certa propriedade, ao longo de cinco safras, \ncom períodos de um ano, de 2011 a 2016.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_1.jpeg",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "A produtividade de soja em uma área cultivada é a média da quantidade de sacas de 50 quilogramas que são produzidas \npor hectare. O quadro apresenta a área cultivada e a produtividade de soja em certa propriedade, ao longo de cinco safras, \ncom períodos de um ano, de 2011 a 2016.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_1.jpeg",
         "enunciation": "O gráfico de linhas que representa a produção de soja dessa propriedade, em tonelada, nessas cinco safras é",
         "alternatives": {
             "A": {
@@ -509,18 +509,18 @@
         }
     },
     {
-        "questionId": "Q3761243",
+        "question_id": "Q3761243",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas",
             "Análise de Tabelas e Gráficos"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "",
         "enunciation": "A autoescola que será contratada é a",
         "alternatives": {
             "A": {
@@ -546,18 +546,18 @@
         }
     },
     {
-        "questionId": "Q3761242",
+        "question_id": "Q3761242",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas",
             "Análise de Tabelas e Gráficos"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Uma pessoa tem um carro bicombustível, que funciona a gás natural veicular (GNV) e a gasolina. O rendimento do carro, \nmedido em km/m³, no caso do gás, ou medido em km/L, no caso da gasolina, depende, entre outros fatores, da velocidade, \nem km/h, em que o carro trafega. Essa relação está em conformidade com estes gráficos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.167.jpeg\nDurante um feriado, essa pessoa realizou uma viagem de 240 km. Para obter uma estimativa de gasto de combustível, \nassuma que em todo o trajeto se manteve uma velocidade constante de 60 km/h. Considere que, durante metade do caminho, \nfoi utilizado apenas GNV e, na outra metade, apenas gasolina. O que foi pago pelo metro cúbico de GNV e pelo litro de gasolina \ncorrespondeu, respectivamente, a R$ 2,00 e a R$ 3,00.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Uma pessoa tem um carro bicombustível, que funciona a gás natural veicular (GNV) e a gasolina. O rendimento do carro, \nmedido em km/m³, no caso do gás, ou medido em km/L, no caso da gasolina, depende, entre outros fatores, da velocidade, \nem km/h, em que o carro trafega. Essa relação está em conformidade com estes gráficos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.167.jpeg\nDurante um feriado, essa pessoa realizou uma viagem de 240 km. Para obter uma estimativa de gasto de combustível, \nassuma que em todo o trajeto se manteve uma velocidade constante de 60 km/h. Considere que, durante metade do caminho, \nfoi utilizado apenas GNV e, na outra metade, apenas gasolina. O que foi pago pelo metro cúbico de GNV e pelo litro de gasolina \ncorrespondeu, respectivamente, a R$ 2,00 e a R$ 3,00.",
         "enunciation": "Qual foi a diferença, em real, entre os gastos totais com gasolina e com GNV?",
         "alternatives": {
             "A": {
@@ -583,17 +583,17 @@
         }
     },
     {
-        "questionId": "Q3761241",
+        "question_id": "Q3761241",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Pace é um termo usado por um corredor para denominar o seu ritmo médio em uma corrida. Representa o tempo médio, \nem segundo, que esse corredor leva para percorrer 1 km.\nO esquema apresenta o tempo, em segundo, que um corredor levou para cruzar as marcas que definem os quatro primeiros \ntrechos de 1 km, em uma corrida de 5 km, e o tempo gasto para percorrer cada trecho de 1 km.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.166.jpeg\nO melhor pace que esse corredor alcançou em corridas de 5 km foi 281 s/km.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Pace é um termo usado por um corredor para denominar o seu ritmo médio em uma corrida. Representa o tempo médio, \nem segundo, que esse corredor leva para percorrer 1 km.\nO esquema apresenta o tempo, em segundo, que um corredor levou para cruzar as marcas que definem os quatro primeiros \ntrechos de 1 km, em uma corrida de 5 km, e o tempo gasto para percorrer cada trecho de 1 km.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.166.jpeg\nO melhor pace que esse corredor alcançou em corridas de 5 km foi 281 s/km.",
         "enunciation": "Para que consiga repetir nessa corrida seu melhor pace em corridas de 5 km, seu tempo, no 5º trecho, deve ser quantos segundos menor do que o que ele gastou para percorrer o 4º trecho?",
         "alternatives": {
             "A": {
@@ -619,7 +619,7 @@
         }
     },
     {
-        "questionId": "Q3761240",
+        "question_id": "Q3761240",
         "subject": "Estatística",
         "topics": [
             "Estatística descritiva (análise exploratória de dados)",
@@ -627,11 +627,11 @@
             "Medidas de Dispersão (Amplitude, Desvio Médio, Variância, Desvio Padrão e Coeficiente de Variação)"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Em um estudo clínico, 55 mulheres foram distribuídas, aleatoriamente, em 5 grupos de 11 pessoas. Para testar uma nova \nmedicação, será escolhido um grupo no qual a maioria das mulheres tenham idades entre 20 e 30 anos. Os demais grupos \ntomarão placebo ou medicações já existentes no mercado. O quadro, parcialmente preenchido, informa alguns dados relativos \nàs idades das mulheres desses grupos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.165.jpeg",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Em um estudo clínico, 55 mulheres foram distribuídas, aleatoriamente, em 5 grupos de 11 pessoas. Para testar uma nova \nmedicação, será escolhido um grupo no qual a maioria das mulheres tenham idades entre 20 e 30 anos. Os demais grupos \ntomarão placebo ou medicações já existentes no mercado. O quadro, parcialmente preenchido, informa alguns dados relativos \nàs idades das mulheres desses grupos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.165.jpeg",
         "enunciation": "Mesmo com o quadro incompleto, foi possível selecionar um desses grupos porque, apenas com os dados apresentados no quadro, foi identificado um grupo que, certamente, atendia ao critério de escolha.\nO grupo escolhido foi o",
         "alternatives": {
             "A": {
@@ -657,18 +657,18 @@
         }
     },
     {
-        "questionId": "Q3761239",
+        "question_id": "Q3761239",
         "subject": "Matemática",
         "topics": [
             "Trigonometria",
             "Geometria Plana"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "O dono de uma embarcação deve partir do ponto P e \nchegar ao ponto R por meio de dois deslocamentos lineares \ne navegando a uma velocidade constante. Essa viagem será \nfeita durante a noite, e como ele dispõe somente de uma \nbússola e de um relógio, planejou sua rota da seguinte forma:\n1º – partir do ponto P na direção 110 e navegar por 4 horas, \nalcançando um ponto Q;\n2º – partir do ponto Q na direção 90 e navegar por 2 horas, \nalcançando o ponto de destino R.\nNo entanto, ao direcionar o barco para o primeiro \ndeslocamento, o fez na direção 340, em vez de 110. Com isso, \nrealizou os seguintes deslocamentos:\n1º – partiu do ponto P na direção 340 e navegou por 4 horas, \nalcançando um ponto S;\n2º – partiu do ponto S na direção 90 e navegou por 2 horas, \nalcançando o ponto T.\nA figura apresenta a bússola, a rota planejada e a rota \nexecutada.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.164.jpeg\nO dono da embarcação só percebeu o equívoco ao chegar \nao ponto T. Com isso, agora ele precisa definir a direção e o \ntempo de navegação que lhe permita, partindo do ponto T, \nchegar ao ponto de destino R por meio de uma rota retilínea.\nConsidere 0,64 como aproximação para cos 50°.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "O dono de uma embarcação deve partir do ponto P e \nchegar ao ponto R por meio de dois deslocamentos lineares \ne navegando a uma velocidade constante. Essa viagem será \nfeita durante a noite, e como ele dispõe somente de uma \nbússola e de um relógio, planejou sua rota da seguinte forma:\n1º – partir do ponto P na direção 110 e navegar por 4 horas, \nalcançando um ponto Q;\n2º – partir do ponto Q na direção 90 e navegar por 2 horas, \nalcançando o ponto de destino R.\nNo entanto, ao direcionar o barco para o primeiro \ndeslocamento, o fez na direção 340, em vez de 110. Com isso, \nrealizou os seguintes deslocamentos:\n1º – partiu do ponto P na direção 340 e navegou por 4 horas, \nalcançando um ponto S;\n2º – partiu do ponto S na direção 90 e navegou por 2 horas, \nalcançando o ponto T.\nA figura apresenta a bússola, a rota planejada e a rota \nexecutada.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.164.jpeg\nO dono da embarcação só percebeu o equívoco ao chegar \nao ponto T. Com isso, agora ele precisa definir a direção e o \ntempo de navegação que lhe permita, partindo do ponto T, \nchegar ao ponto de destino R por meio de uma rota retilínea.\nConsidere 0,64 como aproximação para cos 50°.",
         "enunciation": "A direção e o tempo aproximado de navegação que o dono da embarcação deve utilizar são, respectivamente,",
         "alternatives": {
             "A": {
@@ -694,18 +694,18 @@
         }
     },
     {
-        "questionId": "Q3761238",
+        "question_id": "Q3761238",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas",
             "Análise de Tabelas e Gráficos"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Em uma escola, todos os estudantes do ensino médio \npraticam uma das três modalidades esportivas oferecidas \ncomo atividade física, e cada um deles pratica somente uma \ndessas atividades. Os gráficos trazem alguns dados relativos aos \nquantitativos de estudantes que praticam essas modalidades \nesportivas nessa escola, apesar de algumas quantidades não \nterem sido informadas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.163.jpeg",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Em uma escola, todos os estudantes do ensino médio \npraticam uma das três modalidades esportivas oferecidas \ncomo atividade física, e cada um deles pratica somente uma \ndessas atividades. Os gráficos trazem alguns dados relativos aos \nquantitativos de estudantes que praticam essas modalidades \nesportivas nessa escola, apesar de algumas quantidades não \nterem sido informadas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.163.jpeg",
         "enunciation": "Qual é a quantidade de estudantes no ensino médio dessa escola?",
         "alternatives": {
             "A": {
@@ -731,18 +731,18 @@
         }
     },
     {
-        "questionId": "Q3761237",
+        "question_id": "Q3761237",
         "subject": "Matemática",
         "topics": [
             "Aritmética e Problemas",
             "Álgebra"
         ],
         "year": "2024",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
-        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
-        "associatedText": "Uma empresa produziu, em um determinado mês, \n110 toneladas de plástico a partir de derivados de petróleo \ne 80 toneladas a partir de plásticos reciclados. O custo para \nreciclar uma tonelada de plástico é de R$ 500,00, que equivale \na 5% do custo para produzir a mesma quantidade de plástico \na partir de derivados de petróleo. Para o mês seguinte, a meta \ndessa empresa é produzir a mesma quantidade de plástico que \nfoi produzida nesse mês, mas com redução de, pelo menos, \n50% no custo de produção.",
+        "exam_title": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "exam_url": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associated_text": "Uma empresa produziu, em um determinado mês, \n110 toneladas de plástico a partir de derivados de petróleo \ne 80 toneladas a partir de plásticos reciclados. O custo para \nreciclar uma tonelada de plástico é de R$ 500,00, que equivale \na 5% do custo para produzir a mesma quantidade de plástico \na partir de derivados de petróleo. Para o mês seguinte, a meta \ndessa empresa é produzir a mesma quantidade de plástico que \nfoi produzida nesse mês, mas com redução de, pelo menos, \n50% no custo de produção.",
         "enunciation": "Para que no mês seguinte a empresa atinja a meta, a quantidade mínima de toneladas de plástico que devem ser produzidas a partir de reciclagem deverá ser",
         "alternatives": {
             "A": {

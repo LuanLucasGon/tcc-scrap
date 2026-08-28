@@ -5,7 +5,7 @@ from sqlalchemy import Boolean, DateTime, String, Text, func
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
-from db.database import Base
+from infra.database import Base
 
 
 class Questao(Base):

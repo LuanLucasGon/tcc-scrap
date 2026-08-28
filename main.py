@@ -5,13 +5,13 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
+from dataclasses import asdict
 from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright, Playwright
-from sqlalchemy import func, select
-from sqlalchemy.dialects.postgresql import insert
 
-from db.database import SessionLocal
-from db.models import Questao
+from infra.database import SessionLocal
+from questions.dtos.question_scraped_dto import QuestionScrapedDTO
+from questions.repository.question_repository import QuestionRepository
 
 BASE_URL = "https://www.qconcursos.com"
 URL_ENEM = "https://www.qconcursos.com/questoes-do-enem/questoes"
@@ -185,77 +185,38 @@ def extractQuestions(questionList):
     for card in questionItems.all():
         subject, topics = extractSubjectAndTopics(card)
 
-        question = {
+        payload = {
             "questionId": extractQuestionId(card),
             "subject": subject,
             "topics": topics,
         }
-        question.update(extractExamInfo(card))
-        question.update({
+        payload.update(extractExamInfo(card))
+        payload.update({
             "associatedText": extractAssociatedText(card),
             "enunciation": extractQuestionEnunciation(card),
             "alternatives": extractAlternatives(card),
         })
 
-        questions.append(question)
+        questions.append(QuestionScrapedDTO.from_scrape(payload))
 
     return questions
 
-def saveToJson(data, fileName):
+def saveToJson(questions, fileName):
+    data = [asdict(question) for question in questions]
     with open(fileName, 'w', encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
     print(f"Saved {len(data)} question to file: {fileName}")
 
-QUESTION_COLUMN_MAP = {
-    "questionId": "question_id",
-    "subject": "subject",
-    "topics": "topics",
-    "year": "year",
-    "examBoard": "exam_board",
-    "organization": "organization",
-    "examTitle": "exam_title",
-    "examUrl": "exam_url",
-    "associatedText": "associated_text",
-    "enunciation": "enunciation",
-    "alternatives": "alternatives",
-}
-
-def toQuestionRow(question):
-    return {column: question.get(key) for key, column in QUESTION_COLUMN_MAP.items()}
-
 def saveToDatabase(questions):
-    rows = [toQuestionRow(question) for question in questions if question.get("questionId")]
-    if not rows:
+    dtos = [question for question in questions if question.question_id]
+    if not dtos:
         print("Nenhuma questao para salvar no banco.")
         return
 
-    questionIds = [row["question_id"] for row in rows]
+    with SessionLocal() as session, session.begin():
+        result = QuestionRepository(session=session).upsert_many(dtos)
 
-    session = SessionLocal()
-    try:
-        existing = set(
-            session.scalars(
-                select(Questao.question_id).where(Questao.question_id.in_(questionIds))
-            )
-        )
-
-        updatableColumns = [column for column in QUESTION_COLUMN_MAP.values() if column != "question_id"]
-        stmt = insert(Questao).values(rows)
-        stmt = stmt.on_conflict_do_update(
-            index_elements=["question_id"],
-            set_={
-                **{column: stmt.excluded[column] for column in updatableColumns},
-                "updated_at": func.now(),
-            },
-        )
-        session.execute(stmt)
-        session.commit()
-    finally:
-        session.close()
-
-    inserted = sum(1 for questionId in questionIds if questionId not in existing)
-    updated = len(questionIds) - inserted
-    print(f"Banco: {inserted} inseridas, {updated} atualizadas (tabela questao).")
+    print(f"Banco: {result.inserted} inseridas, {result.updated} atualizadas (tabela questao).")
 
 def run(playwright: Playwright):
     browser, page = openBrowser(playwright)

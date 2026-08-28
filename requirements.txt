@@ -3,6 +3,8 @@ beautifulsoup4
 lxml
 playwright
 sqlalchemy
+advanced-alchemy
 alembic
 psycopg[binary]
 python-dotenv
+pytest

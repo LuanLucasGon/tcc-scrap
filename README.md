@@ -58,9 +58,24 @@ postgresql://tcc:tcc@localhost:5432/projectTCC
 
 Dependências: `pip install -r requirements.txt`.
 
-A camada de acesso fica em `db/` (`db/database.py` monta a URL a partir das
-env vars; `db/models.py` tem os modelos). As migrations ficam em
-`alembic/versions/`.
+A infraestrutura de acesso fica em `infra/` (`infra/database.py` monta a URL a
+partir das env vars e expõe `engine` / `SessionLocal` / `Base`). Cada entidade
+do domínio tem seu próprio pacote em `questions/` seguindo Clean Architecture:
+
+```
+infra/database.py                        engine, SessionLocal, Base
+questions/entity/questao.py              modelo SQLAlchemy Questao
+questions/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
+questions/dtos/question_dto.py           DTO de saída (leituras do repositório)
+questions/repository/                    porta + adapter (Advanced Alchemy)
+```
+
+O `QuestionRepository` estende o *service layer* do `advanced-alchemy` (o mais
+próximo de Spring Data / Hibernate em Python): herda CRUD e consultas prontos e
+converte o `QuestionScrapedDTO` em entidade sozinho (os campos do DTO já têm o
+nome das colunas). Recebe a `Session` de quem chama e implementa
+`QuestionRepositoryInterface` (`upsert_many`, `get_by_question_id`,
+`list_active`). As migrations ficam em `alembic/versions/`.
 
 ```bash
 # Aplicar todas as migrations pendentes
@@ -104,3 +119,13 @@ O `main.py` grava os resultados em **`questions.json`** (para comparação) e fa
   questão marcada como `excluido = true`).
 
 Rodar o script quantas vezes quiser não cria linhas duplicadas.
+
+## Testes
+
+```bash
+pytest
+```
+
+Os testes de unidade (DTOs, mapeamento, contagem de upsert) rodam sem banco.
+Os testes de integração do `QuestionRepository` precisam do Postgres no ar
+(`docker compose up -d db`) — sem ele, são automaticamente pulados (`skip`).

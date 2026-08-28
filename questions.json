@@ -1,62 +1,770 @@
 [
     {
-        "text": "Um pintor pretende fazer uma reprodução do quadro Guernica em uma tela de dimensões 20 cm por 30 cm. Essa obra, de autoria do espanhol Pablo Picasso, é uma pintura com 3,6 m de altura e 7,8 m de comprimento. A reprodução a ser feita deverá preencher a maior área possível da tela, mantendo a proporção entre as dimensões da obra original. A escala que deve ser empregada para essa reprodução é\nAlternativas\nA\n1 : 12.\nB\n1 : 18.\nC\n1 : 21.\nD\n1 : 23.\nE\n1 : 26.\nResponder"
+        "questionId": "Q3761165",
+        "subject": "História",
+        "topics": [
+            "História Geral",
+            "Imperialismo e Colonialismo do século XIX"
+        ],
+        "year": "2025",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Em 1914, uma expedição estudantil saiu da Rússia em direção à América do Sul, sendo considerada a segunda campanha científica da Rússia no continente depois da longa viagem do barão Langsdorff pelo interior do Brasil na primeira metade do século XIX. O empreendimento foi enviado pelo Museu de Antropologia e Etnografia de São Petersburgo e integrado por cinco jovens cientistas, sendo dois zoólogos, dois etnógrafos e um antropólogo, cujo objetivo era a coleta de material de valor biológico e etnográfico para compor coleções nas instituições que participaram de seu financiamento. A expedição passou por países como Brasil, Paraguai e Argentina, resultando em amplo material manuscrito e algumas publicações, além dos objetos coletados.\nCARNEIRO, L. A. F. A Rússia no Brasil do início do século XX.\nRio de Janeiro: Casa de Oswaldo Cruz, 2015 (adaptado).",
+        "enunciation": "Além do significado científico, o evento mencionado conectava-se a um projeto nacionalista de caráter",
+        "alternatives": {
+            "A": {
+                "text": "imperialista e colonizador.",
+                "images": []
+            },
+            "B": {
+                "text": "militar e disciplinador.",
+                "images": []
+            },
+            "C": {
+                "text": "lúdico e filantrópico.",
+                "images": []
+            },
+            "D": {
+                "text": "mercantil e predatório.",
+                "images": []
+            },
+            "E": {
+                "text": "religioso e humanitário.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Um tanque de armazenamento de líquidos tem o formato de uma pirâmide reta de base quadrada, cujo plano que contém essa base é paralelo a um solo plano e horizontal. Esse tanque tem capacidade de 240 litros e altura de 2 metros. Inicialmente vazio, nele é despejado um líquido à vazão constante de 0,015 m3/s.\nSabe-se que 1 L = 1 dm3 = 0,001 m3.\n\n\n\n\n\n\n\nQual expressão fornece a altura, em metro, da coluna de líquido dentro desse tanque em função do tempo t, em segundo? \nAlternativas\nA\nB\nC\nD\nE\nResponder"
+        "questionId": "Q3761255",
+        "subject": "Matemática",
+        "topics": [
+            "Álgebra",
+            "Progressões"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Quatro amigos, cada um com 100 moedas, criaram um jogo, \nno qual cada um assume uma das quatro posições, 1, 2, 3 ou 4, \nindicadas na figura, e nela permanece até o final.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.180.jpeg\nO desenvolvimento do jogo se dá em rodadas e, em todas \nelas, cada jogador transfere e recebe uma quantidade de moedas, \nda seguinte maneira:\n• o jogador na posição 1 transfere 1 moeda para o jogador \nna posição 2;\n• o jogador na posição 2 transfere 2 moedas para o jogador \nna posição 3;\n• o jogador na posição 3 transfere 3 moedas para o jogador \nna posição 4;\n• o jogador na posição 4 transfere 4 moedas para o jogador \nna posição 1, completando a rodada.",
+        "enunciation": "Ao final da rodada n, qual é a expressão algébrica que representa o número de moedas do jogador na posição 1?",
+        "alternatives": {
+            "A": {
+                "text": "103 + 4n",
+                "images": []
+            },
+            "B": {
+                "text": "103 + 3n",
+                "images": []
+            },
+            "C": {
+                "text": "100 + 4n",
+                "images": []
+            },
+            "D": {
+                "text": "100 + 3n",
+                "images": []
+            },
+            "E": {
+                "text": "99 + 4n",
+                "images": []
+            }
+        }
     },
     {
-        "text": "O dono de dois cachorrinhos, um shitzu e um poodle, fez uma pesquisa na internet sobre preços de banho para seus cães em cinco lojas próximas à sua casa. Ele pretendia levar os dois cachorrinhos a um mesmo petshop naquela semana para tomar banho.\n\n\n\n\n\nO local escolhido foi o que apresentou o menor preço para banho dos dois cachorrinhos.\nO petshop escolhido foi o \nAlternativas\nA\nI.\nB\nII.\nC\nIII.\nD\nIV.\nE\nV.\nResponder"
+        "questionId": "Q3761254",
+        "subject": "Física",
+        "topics": [
+            "Conteúdos Básicos",
+            "Ótica"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "A luminância de um objeto é a grandeza que descreve a \nquantidade de luz produzida ou refletida por sua superfície. \nEla está definida como a razão entre a intensidade luminosa, \nmedida em candela (cd), e o quadrado da distância do objeto \naté o foco de luz, medida em metro (m).",
+        "enunciation": "A unidade de medida da luminância de um objeto é",
+        "alternatives": {
+            "A": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_A.jpeg"
+                ]
+            },
+            "B": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_B.jpeg"
+                ]
+            },
+            "C": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_C.jpeg"
+                ]
+            },
+            "D": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_D.jpeg"
+                ]
+            },
+            "E": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_E.jpeg"
+                ]
+            }
+        }
     },
     {
-        "text": "Na planta baixa de uma casa, um quarto retangular, cuja área é de 24 m2, está representado por um retângulo com lados medindo 0,10 m e 0,15 m.\nA escala dessa planta é \nAlternativas\nA\n1 : 24.\nB\n1 : 40.\nC\n1 : 60.\nD\n1 : 1600.\nE\n1 : 16000.\nResponder"
+        "questionId": "Q3761253",
+        "subject": "Matemática",
+        "topics": [
+            "Probabilidade"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Três dados cúbicos, com faces numeradas de 1 a 6, foram \nutilizados em um jogo. Artur escolheu dois dados, e João \nficou com o terceiro. O jogo consiste em ambos lançarem \nseus dados, observarem os números nas faces voltadas para \ncima e compararem o maior número obtido por Artur com \no número obtido por João. Vence o jogador que obtiver o \nmaior número. Em caso de empate, a vitória é de João.",
+        "enunciation": "O jogador que tem a maior probabilidade de vitória é",
+        "alternatives": {
+            "A": {
+                "text": "Artur, com probabilidade de",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_A.jpeg"
+                ]
+            },
+            "B": {
+                "text": "João, com probabilidade de",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_B.jpeg"
+                ]
+            },
+            "C": {
+                "text": "Artur, com probabilidade de",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_C%20e%20D.jpeg"
+                ]
+            },
+            "D": {
+                "text": "João, com probabilidade de",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_C%20e%20D.jpeg"
+                ]
+            },
+            "E": {
+                "text": "Artur, com probabilidade de",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_E.jpeg"
+                ]
+            }
+        }
     },
     {
-        "text": "É comum pensarmos na equivalência entre a idade de um animal de estimação, no caso de cães e gatos, e de um ser humano.\n     De acordo com as diretrizes de idade criadas pela American Animal Hospital Association (AAHA), o International Cat Care e a American Association of Feline Practitioners (AAFP), a última fase da vida de um gato é chamada de geriátrica e começa aos 15 anos de vida do animal. A tabela apresenta os primeiros anos da fase geriátrica da equivalência entre a idade do gato e a idade de um humano.\n\n\n  Sabe-se que o gato mais velho do mundo morreu ao completar 38 anos de vida. Considere que o padrão observado na tabela se mantém.\n\n\n\n\n\n\nDisponível em: https://canaldopet.ig.com.br. Acesso em: 28 nov. 2021 (adaptado).\n\nacordo com os dados apresentados, a idade em que o gato mais velho do mundo morreu é equivalente a qual idade, em ano, de um humano?\nAlternativas\nA\n129\nB\n133\nC\n158\nD\n168\nE\n176\nResponder"
+        "questionId": "Q3761252",
+        "subject": "Matemática",
+        "topics": [
+            "Geometria Plana",
+            "Geometria Espacial"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "A figura ilustra o projeto visual para confecção de uma \nmedalha comemorativa, com a forma de um cilindro circular \nreto, de diâmetro 6 cm e espessura 3 mm.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177.jpeg\nA figura ABCD tem a forma de um quadrado e é a base de \num prisma que atravessa toda a medalha. A região da medalha \nexterna a esse prisma será cunhada em ouro. Pretende-se \ncunhar 100 dessas medalhas.\nConsidere 3,1 como valor aproximado para\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.177_2.jpeg",
+        "enunciation": "Qual é o volume de ouro, em centímetro cúbico, necessário para a confecção dessas medalhas?",
+        "alternatives": {
+            "A": {
+                "text": "288",
+                "images": []
+            },
+            "B": {
+                "text": "297",
+                "images": []
+            },
+            "C": {
+                "text": "567",
+                "images": []
+            },
+            "D": {
+                "text": "990",
+                "images": []
+            },
+            "E": {
+                "text": "1 134",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma incorporadora põe à venda diversos apartamentos de 2 e de 3 quartos. Os de 2 quartos têm varanda e custam R$ 220000,00. Alguns apartamentos de 3 quartos não têm varanda e custam R$ 300 000,00. Se tiverem varanda, o preço será 15% maior. A previsão do mercado é de que imóveis de 2 quartos possam ser revendidos daqui a 12 meses por 5% a mais que o preço pelo qual foram comprados, enquanto apartamentos de 3 quartos poderão ser revendidos daqui a 12 meses por 4% a mais do que o valor pago, independentemente de terem varanda.\n     Uma agência imobiliária tem R$ 1000 000,00 para investir e decidiu comprar alguns desses apartamentos. A intenção é revendê-los daqui a 12 meses com o maior lucro possível. As possibilidades de compra foram analisadas e, levando em conta o valor a investir e a previsão do mercado, uma decisão sobre a compra foi tomada.\nA decisão quanto à quantidade e ao tipo de apartamentos a comprar foi de\nAlternativas\nA\n4 de 2 quartos.\nB\n3 de 3 quartos sem varanda.\nC\n3 de 3 quartos com varanda.\nD\n3 de 2 quartos e 1 de 3 quartos sem varanda.\nE\n1 de 2 quartos, 1 de 3 quartos sem varanda e 1 de 3 quartos com varanda.\nResponder"
+        "questionId": "Q3761251",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "A final de um campeonato de futebol foi disputada em 2 tempos \nregulamentares, de 45 minutos cada, sem acréscimos, com uma \nprorrogação de 30 minutos, também sem acréscimos. Um jogador \nentrou no início do segundo tempo, com um equipamento para \nmedir a distância percorrida durante sua participação no jogo. \nAo final do segundo tempo regulamentar, esse jogador havia \npercorrido 4,5 km. Ele manteve na prorrogação a mesma velocidade \nmédia que havia mantido no segundo tempo regulamentar.",
+        "enunciation": "A distância percorrida por esse jogador durante sua participação na partida, em quilômetro, foi",
+        "alternatives": {
+            "A": {
+                "text": "4,5.",
+                "images": []
+            },
+            "B": {
+                "text": "6,0.",
+                "images": []
+            },
+            "C": {
+                "text": "7,5.",
+                "images": []
+            },
+            "D": {
+                "text": "9,0.",
+                "images": []
+            },
+            "E": {
+                "text": "12,0.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Em 2017, foram publicados os resultados de uma pesquisa sobre a distância média preferida entre pessoas “estranhas”, “conhecidas” e “amigas”, dependendo do local onde vivem, conforme apresentado.\n\n\n\n\n\n\nSOROKOWSKA, A. et al. Prefered Interpersonal Distances: a Global Comparison. J Cross-Cultural Psychol., n. 48, 2017 (adaptado).\n\nDentre os locais considerados no gráfico, os que apresentam as menores distâncias médias preferidas entre “estranhos”, “conhecidos” e “amigos” são, respectivamente,\nAlternativas\nA\nChina, Índia e China.\nB\nArgentina, Argentina e Noruega.\n\nC\nNoruega, Argentina e Argentina.\nD\nNigéria, Nigéria e México.\nE\nChina, Índia e Nigéria.\nResponder"
+        "questionId": "Q3761250",
+        "subject": "Raciocínio Lógico",
+        "topics": [
+            "Análise Combinatória em Raciocínio Lógico",
+            "Raciocínio Matemático"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Um pai comprou oito presentes diferentes (dentre os \nquais, uma bicicleta e um celular) para dar a seus três filhos. \nEle pretende distribuir os presentes de modo que o filho \nmais velho e o mais novo recebam três presentes cada um, \ne o do meio receba os dois presentes restantes. O mais velho \nganhará, entre seus presentes, ou uma bicicleta ou um celular, \nmas não ambos.",
+        "enunciation": "De quantas maneiras distintas a distribuição dos presentes pode ser feita?",
+        "alternatives": {
+            "A": {
+                "text": "36",
+                "images": []
+            },
+            "B": {
+                "text": "53",
+                "images": []
+            },
+            "C": {
+                "text": "300",
+                "images": []
+            },
+            "D": {
+                "text": "360",
+                "images": []
+            },
+            "E": {
+                "text": "560",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma pessoa decide fazer uma viagem de automóvel, cujo trecho a ser percorrido é de 560 km em rodovias asfaltadas. Ela partiu com o tanque contendo 50 litros de gasolina e parou para descansar em um posto de combustível que ficava a 80 km do destino. Na faixa de velocidade em que ela dirigiu até essa parada, o rendimento médio de seu veículo foi de 12 km por litro. Sabendo que, em certa faixa de velocidade, o rendimento médio de seu carro é de 16 km por litro, decide alterar sua velocidade para percorrer o trecho final da viagem de forma a garantir esse maior rendimento. Aproveitando que se encontrava em um posto de gasolina, essa pessoa pretende reabastecer seu carro de modo a conseguir chegar ao destino com, pelo menos, 25 litros de gasolina no tanque.\nA quantidade mínima de gasolina, em litro, com que essa pessoa deve reabastecer seu veículo nesse posto, antes de seguir viagem, é\nAlternativas\nA\n5.\nB\n10.\nC\n15.\nD\n20.\nE\n55.\nResponder"
+        "questionId": "Q3761249",
+        "subject": "Matemática",
+        "topics": [
+            "Álgebra"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Um carro que custa 60 mil reais é comercializado por uma \nrevendedora que oferece duas opções de pagamento, todas \nsem entrada e sem juros:\n• opção 1: pagamento em n parcelas iguais;\n• opção 2: pagamento em 6 parcelas a mais do que na \nopção 1 e, com isso, o valor de cada parcela se torna \nR$ 500,00 menor do que o valor da parcela na opção 1.\nNas duas opções de pagamento, o valor total a ser pago \npelo carro é o mesmo.",
+        "enunciation": "Qual é a quantidade n de parcelas contidas na opção 1 de pagamento?",
+        "alternatives": {
+            "A": {
+                "text": "18",
+                "images": []
+            },
+            "B": {
+                "text": "24",
+                "images": []
+            },
+            "C": {
+                "text": "30",
+                "images": []
+            },
+            "D": {
+                "text": "42",
+                "images": []
+            },
+            "E": {
+                "text": "48",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma fábrica utiliza latas cilíndricas como embalagem de seus produtos. Para embalar um novo produto, essa fábrica necessitará de latas cilíndricas com, no mínimo, o triplo da capacidade volumétrica das que estão em uso, e com o menor custo possível. O representante de uma empresa de embalagens disponibilizou para essa fábrica cinco opções de latas, relacionando as medidas das latas novas com as que estão em uso. São elas:\n\n• I: multiplicar a medida do raio por 6 e manter a da altura; • II: triplicar as medidas da área da base e da altura; • III: triplicar a medida do raio e manter a da altura; • IV: manter a medida do raio e triplicar a da altura; • V: triplicar as medidas do raio e da altura.\n\nO preço de cada lata é diretamente proporcional à sua capacidade volumétrica.\nAs exigências da fábrica são atendidas pelo tipo de lata apresentada na opção\nAlternativas\nA\nI. \nB\nII.\nC\nIII.\nD\nIV.\nE\nV.\nResponder"
+        "questionId": "Q3761248",
+        "subject": "Matemática",
+        "topics": [
+            "Geometria Plana"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Em uma cidade, será construído um túnel que atravessa uma \nmontanha para facilitar o trânsito de automóveis e bicicletas. \nDois projetos foram elaborados e os esquemas com as vistas \nfrontais desses projetos são apresentados na figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173.jpeg\nO Projeto 1 conta com dois túneis, um exclusivo para \nbicicletas e o outro, para automóveis. O Projeto 2 conta com \num único túnel, com espaços reservados para o trânsito exclusivo \nde bicicletas e automóveis. Nos dois projetos, os túneis têm o \nformato de semicilindro reto de mesma extensão, com vias de \nida e volta para os dois tipos de veículos, separados por muretas.\nO projeto a ser aprovado será aquele que apresentar a \nmenor área da seção transversal, pois implicará menor volume \nde material retirado da montanha.\nConsidere 3 como aproximação para  e desconsidere as \nespessuras das muretas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.173_2.jpeg",
+        "enunciation": "O projeto a ser aprovado é",
+        "alternatives": {
+            "A": {
+                "text": "o 1, pois apresenta área de seção transversal medindo\n67,5 m2.",
+                "images": []
+            },
+            "B": {
+                "text": "o 2, pois apresenta área de seção transversal medindo\n121,5 m2.",
+                "images": []
+            },
+            "C": {
+                "text": "o 1, pois apresenta área de seção transversal medindo 135 m2.",
+                "images": []
+            },
+            "D": {
+                "text": "o 2, pois apresenta área de seção transversal medindo 243 m2.",
+                "images": []
+            },
+            "E": {
+                "text": "qualquer um dos dois, pois apresentam áreas de suas seções\ntransversais com medidas iguais.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma empresa produz embalagens para acomodar seu produto. As embalagens atuais são cilíndricas e medem 16 cm de diâmetro e 20 cm de altura. A pedido da direção, as embalagens terão um novo formato. Elas serão na forma de paralelepípedos retos retângulos, de base quadrada, de lado medindo 16 cm. A capacidade delas deverá ser, pelo menos, 400 mL maior que a das embalagens atuais.\nUse 3 como valor aproximado de π.\nO valor aproximado da medida da altura das novas embalagens, em centímetro, é\nAlternativas\nA\n11.\nB\n15.\nC\n17.\nD\n62.\nE\n66.\nResponder"
+        "questionId": "Q3761247",
+        "subject": "Matemática",
+        "topics": [
+            "Funções"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Um empresário utiliza máquinas cuja pressão interna P, \nem atmosfera, depende do tempo contínuo de utilização t, em \nhora, e de um parâmetro positivo K, que define o modelo da \nmáquina, segundo a expressão:\nP = 4 ⋅ log[−K ⋅ (t + 1) ⋅ (t − 19)]\nO fabricante dessas máquinas recomenda ao usuário \nque a pressão interna desse tipo de máquina não ultrapasse \n10 atmosferas durante seu funcionamento.\nO empresário pretende comprar novas máquinas desse \ntipo que deverão funcionar, diariamente, por um período \ncontínuo de 10 horas. Para isso, precisa definir o modelo de \nmáquina a ser adquirida escolhendo o maior valor possível \ndo parâmetro K, atendendo à recomendação do fabricante.",
+        "enunciation": "O maior valor a ser escolhido para K é",
+        "alternatives": {
+            "A": {
+                "text": "100,5",
+                "images": []
+            },
+            "B": {
+                "text": "108",
+                "images": []
+            },
+            "C": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.172_C.jpeg"
+                ]
+            },
+            "D": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.172_D.jpeg"
+                ]
+            },
+            "E": {
+                "text": "25 × 10−2",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Dois objetos metálicos, ambos com temperatura inicial igual a 10 °C, são aquecidos. Suas temperaturas, y1 e y2, em função do tempo t, em segundo, estão representadas no plano cartesiano pelas semirretas com origem no ponto A(0 ; 10) e que passam, respectivamente, pelos pontos B(20 ; 50) e C(40 ; 30). Sabe-se que, em determinado intervalo de tempo, a temperatura y1 aumentou 20 °C. \n\n\n\n\n\n\nNesse mesmo intervalo de tempo, a temperatura y2, em grau Celsius, aumentou\nAlternativas\nA\n5.\nB\n10.\nC\n15. \nD\n20.\nE\n50.\nResponder"
+        "questionId": "Q3761246",
+        "subject": "Matemática",
+        "topics": [
+            "Geometria Plana",
+            "Geometria Espacial"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Um confeiteiro passou a produzir tortas em formato de \ncilindro circular reto, com raio da base variando entre 12 cm e \n16 cm e altura de 6 cm. Essas tortas deverão ser embaladas em \ncaixas com formato de prisma reto de base quadrada, de modo \nque seja possível acomodar a torta em seu interior e ainda restar \npelo menos 1 cm de distância entre a torta e as superfícies internas \nda caixa, lateral e superior. Ele dispõe, originalmente, de caixas \nno formato pretendido, cujas dimensões internas são 14 cm de \ncomprimento do lado da base e 7 cm de altura, que não atendem \nàs suas necessidades. Portanto, ele comprará novas caixas, com \no mesmo formato das caixas originais, mas com comprimento do \nlado da base maior, que sejam adequadas para embalar todos \nos tipos de torta que produz.",
+        "enunciation": "A aresta da base das novas caixas deve ser, no mínimo, quantos centímetros maior do que a das caixas originais?",
+        "alternatives": {
+            "A": {
+                "text": "4",
+                "images": []
+            },
+            "B": {
+                "text": "12",
+                "images": []
+            },
+            "C": {
+                "text": "16",
+                "images": []
+            },
+            "D": {
+                "text": "18",
+                "images": []
+            },
+            "E": {
+                "text": "20",
+                "images": []
+            }
+        }
     },
     {
-        "text": "A partir de um exame clínico, ficou constatado que uma pessoa encontrava-se com uma grave deficiência de vitaminas X e Y. Ela foi orientada a fazer 100% de reposição diária de cada vitamina. Devido à sua condição socioeconômica, ela só dispõe dos alimentos Z e W para suprir essa deficiência. Os alimentos Z e W custam, respectivamente, R$ 3,00 e R$ 8,00 por quilo. Segue um quadro com a porcentagem que cada 100 g desses dois alimentos fornece de cada vitamina. \n\n\n\n\n\n\nO valor mínimo diário, em real, que a pessoa gastará para suprir suas necessidades de vitaminas X e Y, consumindo os alimentos Z e W, é\nAlternativas\nA\n5,00.\nB\n5,60.\nC\n6,10.\nD\n6,20.\nE\n10,00.\nResponder"
+        "questionId": "Q3761245",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas",
+            "Geometria Espacial"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Uma caixa de descarga, acoplada a um vaso sanitário, tem \na forma de paralelepípedo reto retângulo cujas dimensões \ninternas da base são 2,5 dm e 1,5 dm. Nessa caixa há uma boia \nque interrompe o abastecimento quando a altura da coluna de \nágua atinge 2 dm, conforme a figura.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.170.jpeg\nA cada acionamento da descarga, todo o volume de \nágua contida na caixa é despejado no vaso. Para reduzir o \nvolume de água despejado a cada acionamento, uma pessoa \ncolocará, no interior dessa caixa, garrafas de 300 mL, cheias \nde areia e tampadas, de modo a ficarem submersas quando \no abastecimento for interrompido.\nPara garantir o funcionamento eficiente, o mínimo de água \ndespejada a cada acionamento deve ser de 5 L.",
+        "enunciation": "A quantidade máxima de garrafas que serão colocadas nessa caixa, garantindo um funcionamento eficiente, é igual a",
+        "alternatives": {
+            "A": {
+                "text": "10.",
+                "images": []
+            },
+            "B": {
+                "text": "8.",
+                "images": []
+            },
+            "C": {
+                "text": "4.",
+                "images": []
+            },
+            "D": {
+                "text": "3.",
+                "images": []
+            },
+            "E": {
+                "text": "2.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "O automóvel é um bem que se desvaloriza muito rapidamente, quando comparado a outros bens. Após a venda, um automóvel novo já sofre uma grande desvalorização. O histórico de um automóvel novo, vendido por R$ 30 000,00, apresenta os seguintes valores (V ) de mercado, após decorridos os períodos indicados a seguir:\n\n• ao final de um ano, R$ 27000,00; • ao final de dois anos, R$ 24300,00; • ao final de três anos, R$ 21870,00.\n   Esses preços seguiram um modelo exponencial que expressa V em função do número n de ano de uso, pela relação V(n) = V0 · q n, em que V0 é o valor inicial, q é o fator de desvalorização e n é o tempo, em ano, decorrido após a venda.\n\nO valor, em milhar de real, com uma casa decimal, que mais se aproxima do valor de mercado desse carro, ao final de seis anos, é\nAlternativas\nA\n13,7.\nB\n14,3.\nC\n14,6.\nD\n15,9.\nE\n17,7. \nResponder"
+        "questionId": "Q3761244",
+        "subject": "Matemática",
+        "topics": [
+            "Análise de Tabelas e Gráficos"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "A produtividade de soja em uma área cultivada é a média da quantidade de sacas de 50 quilogramas que são produzidas \npor hectare. O quadro apresenta a área cultivada e a produtividade de soja em certa propriedade, ao longo de cinco safras, \ncom períodos de um ano, de 2011 a 2016.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_1.jpeg",
+        "enunciation": "O gráfico de linhas que representa a produção de soja dessa propriedade, em tonelada, nessas cinco safras é",
+        "alternatives": {
+            "A": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_A.jpeg"
+                ]
+            },
+            "B": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_B.jpeg"
+                ]
+            },
+            "C": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_C.jpeg"
+                ]
+            },
+            "D": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_D.jpeg"
+                ]
+            },
+            "E": {
+                "text": "",
+                "images": [
+                    "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_E.jpeg"
+                ]
+            }
+        }
     },
     {
-        "text": "Visando obter créditos de carbono, uma empresa, emissora de gases de efeito estufa, elabora um projeto de reflorestamento em uma área desmatada. De acordo com o projeto, no primeiro ano serão reflorestados 500 hectares. A partir daí, a cada ano, a área total reflorestada será aumentada em 50% em relação ao ano anterior.\nA expressão algébrica que representa a área total reflorestada (An), em hectare, ao final de n anos é\nAlternativas\nA\nAn = 500 ⋅ 0,5n−1 \nB\nAn = 500 ⋅ 1,5n−1  \nC\nAn = 500 + n ⋅ 250\nD\nAn = 500 ⋅ (1 + 0,5n−1)\nE\nAn = 500 + (n − 1) ⋅ 250\nResponder"
+        "questionId": "Q3761243",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas",
+            "Análise de Tabelas e Gráficos"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "",
+        "enunciation": "A autoescola que será contratada é a",
+        "alternatives": {
+            "A": {
+                "text": "I, com o custo total de R$ 1 400,00.",
+                "images": []
+            },
+            "B": {
+                "text": "II, com o custo total de R$ 280,00.",
+                "images": []
+            },
+            "C": {
+                "text": "II, com o custo total de R$ 1 300,00.",
+                "images": []
+            },
+            "D": {
+                "text": "III, com o custo total de R$ 460,00.",
+                "images": []
+            },
+            "E": {
+                "text": "III, com o custo total de R$ 1 200,00.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "A transformação entre os tipos de energia cinética (Ec) e energia potencial (Ep), em sistemas conservativos, é regida pela lei que afirma que a energia mecânica, dada pela soma Ec + Ep, é constante ao longo do tempo. Assuma que, em um sistema conservativo, a energia mecânica é de 12 kJ (quilojoule), sendo observado que a energia cinética Ec (em quilojoule), dada em função do tempo t (em hora), apresentou o comportamento descrito no gráfico.\n\n\n\n\n\n\nPretende-se avaliar, no período de 0 a 8 horas, qual é o maior valor possível de ser atingido pela energia potencial Ep nesse sistema conservativo.\nO valor máximo da energia potencial, em quilojoule, é igual a\nAlternativas\nA\n12.\nB\n9.\nC\n5.\nD\n3.\nE\n1.\nResponder"
+        "questionId": "Q3761242",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas",
+            "Análise de Tabelas e Gráficos"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Uma pessoa tem um carro bicombustível, que funciona a gás natural veicular (GNV) e a gasolina. O rendimento do carro, \nmedido em km/m³, no caso do gás, ou medido em km/L, no caso da gasolina, depende, entre outros fatores, da velocidade, \nem km/h, em que o carro trafega. Essa relação está em conformidade com estes gráficos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.167.jpeg\nDurante um feriado, essa pessoa realizou uma viagem de 240 km. Para obter uma estimativa de gasto de combustível, \nassuma que em todo o trajeto se manteve uma velocidade constante de 60 km/h. Considere que, durante metade do caminho, \nfoi utilizado apenas GNV e, na outra metade, apenas gasolina. O que foi pago pelo metro cúbico de GNV e pelo litro de gasolina \ncorrespondeu, respectivamente, a R$ 2,00 e a R$ 3,00.",
+        "enunciation": "Qual foi a diferença, em real, entre os gastos totais com gasolina e com GNV?",
+        "alternatives": {
+            "A": {
+                "text": "4",
+                "images": []
+            },
+            "B": {
+                "text": "8",
+                "images": []
+            },
+            "C": {
+                "text": "14",
+                "images": []
+            },
+            "D": {
+                "text": "21",
+                "images": []
+            },
+            "E": {
+                "text": "30",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Para estimar a quantidade de tijolos a ser usada na construção de uma parede, é necessário saber como o tijolo será assentado, pois a estimativa depende de qual face do tijolo ficará aparente na parede.\nEm uma obra, um pedreiro deverá construir uma parede, na qual haverá uma janela, ambas em formato retangular, utilizando tijolos em forma de blocos de faces também retangulares, com as medidas indicadas na figura a seguir.\n\n\n\n\n\n\nSegundo as orientações que recebeu, a janela não poderá ser tão pequena a ponto de a medida de sua área equivaler à área da face aparente de 100 tijolos, e nem tão grande a ponto de ocupar uma área de medida maior ou igual a 1/6 da medida da área da parede, na situação em que não houvesse janela na parede. Despreze a espessura da massa para assentar esses tijolos.\nNessas condições, as quantidades mínima e máxima de tijolos que poderão ser utilizados na construção dessa parede são, respectivamente,\nAlternativas\nA\n100 e 400.\nB\n100 e 2400.\nC\n2000 e 2300.\nD\n733 e 2396.\nE\n2500 e 2800.\nResponder"
+        "questionId": "Q3761241",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Pace é um termo usado por um corredor para denominar o seu ritmo médio em uma corrida. Representa o tempo médio, \nem segundo, que esse corredor leva para percorrer 1 km.\nO esquema apresenta o tempo, em segundo, que um corredor levou para cruzar as marcas que definem os quatro primeiros \ntrechos de 1 km, em uma corrida de 5 km, e o tempo gasto para percorrer cada trecho de 1 km.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.166.jpeg\nO melhor pace que esse corredor alcançou em corridas de 5 km foi 281 s/km.",
+        "enunciation": "Para que consiga repetir nessa corrida seu melhor pace em corridas de 5 km, seu tempo, no 5º trecho, deve ser quantos segundos menor do que o que ele gastou para percorrer o 4º trecho?",
+        "alternatives": {
+            "A": {
+                "text": "1",
+                "images": []
+            },
+            "B": {
+                "text": "2",
+                "images": []
+            },
+            "C": {
+                "text": "8",
+                "images": []
+            },
+            "D": {
+                "text": "9",
+                "images": []
+            },
+            "E": {
+                "text": "15",
+                "images": []
+            }
+        }
     },
     {
-        "text": "O limite recomendável de carga a ser transportada por um caminhão é 10000 kg. Ao transportar uma carga que excede em 300 kg esse limite, o consumo de combustível é 2% maior que o consumo observado ao transportar 10000 kg.\nEm uma rodovia, o consumo de combustível desse caminhão é proporcional à quilometragem percorrida, quando considerada uma mesma carga transportada. Sabe-se que, transportando 10000 kg por 90 km nessa rodovia, esse caminhão consome 60 litros de combustível. Suponha que esse caminhão irá transportar uma carga de 10300 kg por 75 km nessa rodovia.\nQuantos litros de combustível esse caminhão consumirá para efetuar esse transporte?\nAlternativas\nA\n49,0\nB\n50,0\nC\n51,0\nD\n58,8\nE\n61,2\nResponder"
+        "questionId": "Q3761240",
+        "subject": "Estatística",
+        "topics": [
+            "Estatística descritiva (análise exploratória de dados)",
+            "Medidas de Posição - Tendência Central (Media, Mediana e Moda)",
+            "Medidas de Dispersão (Amplitude, Desvio Médio, Variância, Desvio Padrão e Coeficiente de Variação)"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Em um estudo clínico, 55 mulheres foram distribuídas, aleatoriamente, em 5 grupos de 11 pessoas. Para testar uma nova \nmedicação, será escolhido um grupo no qual a maioria das mulheres tenham idades entre 20 e 30 anos. Os demais grupos \ntomarão placebo ou medicações já existentes no mercado. O quadro, parcialmente preenchido, informa alguns dados relativos \nàs idades das mulheres desses grupos.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.165.jpeg",
+        "enunciation": "Mesmo com o quadro incompleto, foi possível selecionar um desses grupos porque, apenas com os dados apresentados no quadro, foi identificado um grupo que, certamente, atendia ao critério de escolha.\nO grupo escolhido foi o",
+        "alternatives": {
+            "A": {
+                "text": "1.",
+                "images": []
+            },
+            "B": {
+                "text": "2.",
+                "images": []
+            },
+            "C": {
+                "text": "3.",
+                "images": []
+            },
+            "D": {
+                "text": "4.",
+                "images": []
+            },
+            "E": {
+                "text": "5.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma escola analisou as propostas de cinco empresas para alugar uma máquina fotocopiadora que atenda à demanda de 12000 cópias mensais. Cada empresa cobra um valor fixo pelo aluguel mensal da máquina, mais um valor proporcional ao número de cópias realizadas, ambos em real. Assim, o custo total C, do aluguel de uma máquina, que atenda a uma demanda de x cópias mensais, em cada uma das cinco empresas, pode ser dado pelas expressões:\n\n• empresa I: C = 500 + 0,40x; • empresa II: C = 800 + 0,50x; • empresa III: C = 2000 + 0,20x; • empresa IV: C = 1100 + 0,25x; • empresa V: C = 600 + 0,30x.\n\nA escola escolheu a empresa que apresentou a proposta que fornecia o serviço necessário pelo menor custo mensal.\nA empresa escolhida foi a\nAlternativas\nA\nI.\nB\nII.\nC\nIII.\nD\nIV.\nE\nV.\nResponder"
+        "questionId": "Q3761239",
+        "subject": "Matemática",
+        "topics": [
+            "Trigonometria",
+            "Geometria Plana"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "O dono de uma embarcação deve partir do ponto P e \nchegar ao ponto R por meio de dois deslocamentos lineares \ne navegando a uma velocidade constante. Essa viagem será \nfeita durante a noite, e como ele dispõe somente de uma \nbússola e de um relógio, planejou sua rota da seguinte forma:\n1º – partir do ponto P na direção 110 e navegar por 4 horas, \nalcançando um ponto Q;\n2º – partir do ponto Q na direção 90 e navegar por 2 horas, \nalcançando o ponto de destino R.\nNo entanto, ao direcionar o barco para o primeiro \ndeslocamento, o fez na direção 340, em vez de 110. Com isso, \nrealizou os seguintes deslocamentos:\n1º – partiu do ponto P na direção 340 e navegou por 4 horas, \nalcançando um ponto S;\n2º – partiu do ponto S na direção 90 e navegou por 2 horas, \nalcançando o ponto T.\nA figura apresenta a bússola, a rota planejada e a rota \nexecutada.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.164.jpeg\nO dono da embarcação só percebeu o equívoco ao chegar \nao ponto T. Com isso, agora ele precisa definir a direção e o \ntempo de navegação que lhe permita, partindo do ponto T, \nchegar ao ponto de destino R por meio de uma rota retilínea.\nConsidere 0,64 como aproximação para cos 50°.",
+        "enunciation": "A direção e o tempo aproximado de navegação que o dono da embarcação deve utilizar são, respectivamente,",
+        "alternatives": {
+            "A": {
+                "text": "135 e 7 horas e 15 minutos.",
+                "images": []
+            },
+            "B": {
+                "text": "45 e 7 horas e 15 minutos.",
+                "images": []
+            },
+            "C": {
+                "text": "135 e 12 horas.",
+                "images": []
+            },
+            "D": {
+                "text": "135 e 6 horas.",
+                "images": []
+            },
+            "E": {
+                "text": "45 e 6 horas.",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Em um supermercado, uma marca de papel higiênico é comercializada em cinco diferentes tipos de pacotes, contendo quantidades distintas de rolos em cada um. Todos os rolos são de mesma largura e com metragens lineares diversas. Os preços de cada tipo de pacote são distintos, e as especificações são estas:\n\n• tipo I: pacote contendo 4 rolos, com metragem linear de 60 m por rolo, ao preço de R$ 4,90;\n• tipo II: pacote contendo 12 rolos, com metragem linear de 20 m por rolo, ao preço de R$ 4,50;\n• tipo III: pacote contendo 16 rolos, com metragem linear de 30 m por rolo, ao preço de R$ 8,60;\n• tipo IV: pacote contendo 20 rolos, com metragem linear de 30 m por rolo, ao preço de R$ 11,00;\n• tipo V: pacote contendo 24 rolos, com metragem linear de 20 m por rolo, ao preço de R$ 8,70.\n\nUm cliente vai a esse supermercado, avalia cada uma das especificações e resolve adquirir um pacote de papel higiênico que tenha o menor preço por metro linear.\n\nQual foi o tipo de pacote adquirido por esse cliente?\nAlternativas\nA\nI\nB\nII\nC\nIII\nD\nIV\nE\nV\nResponder"
+        "questionId": "Q3761238",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas",
+            "Análise de Tabelas e Gráficos"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Em uma escola, todos os estudantes do ensino médio \npraticam uma das três modalidades esportivas oferecidas \ncomo atividade física, e cada um deles pratica somente uma \ndessas atividades. Os gráficos trazem alguns dados relativos aos \nquantitativos de estudantes que praticam essas modalidades \nesportivas nessa escola, apesar de algumas quantidades não \nterem sido informadas.\n[IMAGE] https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.163.jpeg",
+        "enunciation": "Qual é a quantidade de estudantes no ensino médio dessa escola?",
+        "alternatives": {
+            "A": {
+                "text": "720",
+                "images": []
+            },
+            "B": {
+                "text": "360",
+                "images": []
+            },
+            "C": {
+                "text": "320",
+                "images": []
+            },
+            "D": {
+                "text": "288",
+                "images": []
+            },
+            "E": {
+                "text": "240",
+                "images": []
+            }
+        }
     },
     {
-        "text": "Uma pessoa planeja fazer um intercâmbio com duração de dois meses consecutivos a serem escolhidos dentre os seguintes meses: abril, maio, junho e julho.\nA tabela apresenta as cinco cidades possíveis para o intercâmbio de seu interesse (X, Y, Z, W e K), com as respectivas temperaturas máximas mensais registradas no mesmo período do ano anterior.\n\n\n\n\n\n\nSeu médico recomendou que, com base nos dados fornecidos na tabela, ela escolhesse a cidade que apresentasse, em dois meses consecutivos, a maior média de temperatura máxima mensal e fizesse o intercâmbio nesse período.\nQual cidade a pessoa deve escolher para satisfazer adequadamente a recomendação médica? \nAlternativas\nA\nX\nB\nY\nC\nZ\nD\nW\nE\nK\nResponder"
+        "questionId": "Q3761237",
+        "subject": "Matemática",
+        "topics": [
+            "Aritmética e Problemas",
+            "Álgebra"
+        ],
+        "year": "2024",
+        "examBoard": "INEP",
+        "organization": "ENEM",
+        "examTitle": "INEP - 2025 - ENEM - Exame Nacional do Ensino Médio",
+        "examUrl": "https://www.qconcursos.com/questoes-do-enem/provas/inep-2025-enem-exame-nacional-do-ensino-medio",
+        "associatedText": "Uma empresa produziu, em um determinado mês, \n110 toneladas de plástico a partir de derivados de petróleo \ne 80 toneladas a partir de plásticos reciclados. O custo para \nreciclar uma tonelada de plástico é de R$ 500,00, que equivale \na 5% do custo para produzir a mesma quantidade de plástico \na partir de derivados de petróleo. Para o mês seguinte, a meta \ndessa empresa é produzir a mesma quantidade de plástico que \nfoi produzida nesse mês, mas com redução de, pelo menos, \n50% no custo de produção.",
+        "enunciation": "Para que no mês seguinte a empresa atinja a meta, a quantidade mínima de toneladas de plástico que devem ser produzidas a partir de reciclagem deverá ser",
+        "alternatives": {
+            "A": {
+                "text": "135.",
+                "images": []
+            },
+            "B": {
+                "text": "140.",
+                "images": []
+            },
+            "C": {
+                "text": "155.",
+                "images": []
+            },
+            "D": {
+                "text": "160.",
+                "images": []
+            },
+            "E": {
+                "text": "175.",
+                "images": []
+            }
+        }
     }
 ]

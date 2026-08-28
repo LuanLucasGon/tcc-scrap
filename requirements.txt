@@ -2,3 +2,7 @@ requests
 beautifulsoup4
 lxml
 playwright
+sqlalchemy
+alembic
+psycopg[binary]
+python-dotenv

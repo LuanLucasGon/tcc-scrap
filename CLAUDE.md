@@ -136,7 +136,16 @@ alembic revision --autogenerate -m "descricao"      # gera nova migration
   `subject_id` (FK NOT NULL → `subject.id`), `topics` (array — nomes crus do
   scraper, sem FK para `topic`), `year`, `exam_board`, `organization`,
   `exam_title`, `exam_url`, `associated_text`, `enunciation`,
-  `alternatives` (jsonb), `deleted` (soft delete), `created_at` / `updated_at`
+  `alternatives` (jsonb), `correct_answer` (letra do gabarito, ex. `A`; pode
+  ser `None` se a página não trouxer o gabarito, ou `X` para questão anulada),
+  `deleted` (soft delete), `created_at` / `updated_at`
+
+`main.extract_answers_from_html` lê o bloco "Respostas" do rodapé da página
+(`numero: letra`) e `main.correlate_answers_by_order` associa cada questão à
+sua letra **pela ordem relativa** em que aparecem na página — o gabarito de
+uma página não necessariamente começa em 1, e a letra não é restrita a A-E
+(questão anulada aparece como `X`; descartar esse número desalinharia todas
+as questões seguintes).
 
 `main.persist_questions` orquestra a persistência de cada leva de questões
 extraídas: normaliza a matéria e busca/cria em `subject` via `SubjectRepository`;

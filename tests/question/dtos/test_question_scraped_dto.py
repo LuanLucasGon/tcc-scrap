@@ -14,6 +14,7 @@ def test_from_scrape_builds_dto_from_snake_case_payload():
         "associated_text": "Texto base",
         "enunciation": "Qual o valor de x?",
         "alternatives": {"A": {"text": "1", "images": []}},
+        "correct_answer": "A",
     }
 
     dto = QuestionScrapedDTO.from_scrape(payload)
@@ -29,6 +30,7 @@ def test_from_scrape_builds_dto_from_snake_case_payload():
     assert dto.associated_text == "Texto base"
     assert dto.enunciation == "Qual o valor de x?"
     assert dto.alternatives == {"A": {"text": "1", "images": []}}
+    assert dto.correct_answer == "A"
 
 
 def test_from_scrape_defaults_missing_optional_fields():
@@ -39,3 +41,4 @@ def test_from_scrape_defaults_missing_optional_fields():
     assert dto.topics == []
     assert dto.alternatives == {}
     assert dto.exam_url is None
+    assert dto.correct_answer is None

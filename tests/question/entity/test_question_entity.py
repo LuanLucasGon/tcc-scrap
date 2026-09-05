@@ -7,6 +7,7 @@ def test_question_entity_is_exposed_from_question_package():
         "question_id",
         "subject_id",
         "alternatives",
+        "correct_answer",
         "deleted",
         "created_at",
         "updated_at",

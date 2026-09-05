@@ -17,6 +17,7 @@ def test_from_entity_exposes_subject_id_and_name():
         subject=Subject(id=subject_id, name="HISTORIA"),
         topics=["Brasil Colônia"],
         alternatives={"A": {"text": "x", "images": []}},
+        correct_answer="A",
         deleted=False,
         created_at=now,
         updated_at=now,
@@ -30,6 +31,7 @@ def test_from_entity_exposes_subject_id_and_name():
     assert dto.subject_name == "HISTORIA"
     assert dto.topics == ["Brasil Colônia"]
     assert dto.alternatives == {"A": {"text": "x", "images": []}}
+    assert dto.correct_answer == "A"
     assert dto.deleted is False
     assert dto.created_at == now
 
@@ -48,3 +50,4 @@ def test_from_entity_tolerates_missing_subject_relationship_and_null_collections
     assert dto.subject_name is None
     assert dto.topics == []
     assert dto.alternatives == {}
+    assert dto.correct_answer is None

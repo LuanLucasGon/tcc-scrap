@@ -34,7 +34,8 @@
                 "text": "religioso e humanitário.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761255",
@@ -71,7 +72,8 @@
                 "text": "99 + 4n",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "D"
     },
     {
         "question_id": "Q3761254",
@@ -118,7 +120,8 @@
                     "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.179_E.jpeg"
                 ]
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761253",
@@ -164,7 +167,8 @@
                     "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.178_E.jpeg"
                 ]
             }
-        }
+        },
+        "correct_answer": "E"
     },
     {
         "question_id": "Q3761252",
@@ -201,7 +205,8 @@
                 "text": "1 134",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "B"
     },
     {
         "question_id": "Q3761251",
@@ -237,7 +242,8 @@
                 "text": "12,0.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "C"
     },
     {
         "question_id": "Q3761250",
@@ -274,7 +280,8 @@
                 "text": "560",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "C"
     },
     {
         "question_id": "Q3761249",
@@ -310,7 +317,8 @@
                 "text": "48",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "X"
     },
     {
         "question_id": "Q3761248",
@@ -346,7 +354,8 @@
                 "text": "qualquer um dos dois, pois apresentam áreas de suas seções\ntransversais com medidas iguais.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761247",
@@ -386,7 +395,8 @@
                 "text": "25 × 10−2",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761246",
@@ -423,7 +433,8 @@
                 "text": "20",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "E"
     },
     {
         "question_id": "Q3761245",
@@ -460,7 +471,8 @@
                 "text": "2.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "B"
     },
     {
         "question_id": "Q3761244",
@@ -506,7 +518,8 @@
                     "https://qcon-assets-production.s3.amazonaws.com/images/provas/141553/Q.169_E.jpeg"
                 ]
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761243",
@@ -543,7 +556,8 @@
                 "text": "III, com o custo total de R$ 1 200,00.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "E"
     },
     {
         "question_id": "Q3761242",
@@ -580,7 +594,8 @@
                 "text": "30",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "D"
     },
     {
         "question_id": "Q3761241",
@@ -616,7 +631,8 @@
                 "text": "15",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "E"
     },
     {
         "question_id": "Q3761240",
@@ -654,7 +670,8 @@
                 "text": "5.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "D"
     },
     {
         "question_id": "Q3761239",
@@ -691,7 +708,8 @@
                 "text": "45 e 6 horas.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "A"
     },
     {
         "question_id": "Q3761238",
@@ -728,7 +746,8 @@
                 "text": "240",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "B"
     },
     {
         "question_id": "Q3761237",
@@ -765,6 +784,7 @@
                 "text": "175.",
                 "images": []
             }
-        }
+        },
+        "correct_answer": "B"
     }
 ]

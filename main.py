@@ -3,6 +3,7 @@ from dataclasses import asdict
 from urllib.parse import urljoin
 
 import json
+from bs4 import BeautifulSoup
 from playwright.sync_api import Browser, Locator, Page, Playwright, sync_playwright
 from sqlalchemy.orm import Session
 
@@ -188,13 +189,54 @@ def extract_alternatives(card: Locator) -> dict[str, dict[str, object]]:
     return alternatives
 
 
-def extract_questions(question_list: Locator) -> list[QuestionScrapedDTO]:
+def extract_answers_from_html(html: str) -> dict[int, str]:
+    """Extrai o gabarito (``numero -> letra``) do bloco "Respostas" do rodapé.
+
+    A letra não é restrita a A-E: questões anuladas aparecem como ``X`` no
+    site, e descartar esse número desalinharia a correlação por ordem de
+    todas as questões seguintes na mesma página (ver ``correlate_answers_by_order``).
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+
+    text = soup.get_text("\n", strip=True)
+    match = re.search(r"\bRespostas\b(.*)", text, re.DOTALL | re.IGNORECASE)
+    if not match:
+        return {}
+
+    pairs = re.findall(r"(\d+)\s*:\s*([A-Za-z])", match.group(1))
+    return {int(number): letter.upper() for number, letter in pairs}
+
+
+def extract_answers(page: Page) -> dict[int, str]:
+    """Extrai o gabarito da página atualmente carregada."""
+    return extract_answers_from_html(page.content())
+
+
+def correlate_answers_by_order(answers: dict[int, str], count: int) -> list[str | None]:
+    """Associa cada uma das ``count`` questões (na ordem em que aparecem na
+    página) à letra correspondente em ``answers``, pela ordem relativa dos
+    números do gabarito — não pelo valor numérico em si, já que o gabarito
+    de uma página não necessariamente começa em 1.
+    """
+    ordered_letters = [answers[number] for number in sorted(answers)]
+    return [
+        ordered_letters[i] if i < len(ordered_letters) else None
+        for i in range(count)
+    ]
+
+
+def extract_questions(
+    question_list: Locator, answers: dict[int, str]
+) -> list[QuestionScrapedDTO]:
     """Percorre todos os cards da listagem e monta um DTO para cada questão."""
     questions = []
 
-    question_items = question_list.locator(".q-question-item")
+    cards = question_list.locator(".q-question-item").all()
+    correct_answers = correlate_answers_by_order(answers, len(cards))
 
-    for card in question_items.all():
+    for card, correct_answer in zip(cards, correct_answers):
         subject, topics = extract_subject_and_topics(card)
 
         payload = {
@@ -207,6 +249,7 @@ def extract_questions(question_list: Locator) -> list[QuestionScrapedDTO]:
             "associated_text": extract_associated_text(card),
             "enunciation": extract_question_enunciation(card),
             "alternatives": extract_alternatives(card),
+            "correct_answer": correct_answer,
         })
 
         questions.append(QuestionScrapedDTO.from_scrape(payload))
@@ -277,7 +320,8 @@ def run(playwright: Playwright) -> None:
     total_items = count_items(question_list)
     print(f"Itens na lista: {total_items}")
 
-    questions = extract_questions(question_list)
+    answers = extract_answers(page)
+    questions = extract_questions(question_list, answers)
     save_to_json(questions, "questions.json")
     save_to_database(questions)
 

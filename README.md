@@ -131,8 +131,17 @@ delete), `created_at` / `updated_at`.
 `subject_id` (uuid, **FK NOT NULL** → `subject.id`), `topics` (array — nomes
 crus do scraper, sem FK para `topic`), `year`, `exam_board`, `organization`,
 `exam_title`, `exam_url`, `associated_text`, `enunciation`, `alternatives`
-(jsonb), `deleted` (boolean, default `false`, soft delete), `created_at` /
-`updated_at`.
+(jsonb), `correct_answer` (letra do gabarito, ex. `A`; `None` se a página não
+trouxer gabarito, ou `X` para questão anulada), `deleted` (boolean, default
+`false`, soft delete), `created_at` / `updated_at`.
+
+O gabarito vem do bloco "Respostas" no rodapé da própria página de listagem
+(`numero: letra`). `main.extract_answers_from_html` extrai esse bloco e
+`main.correlate_answers_by_order` associa cada questão à sua letra **pela
+ordem relativa** em que aparecem na página (não pelo valor numérico — o
+gabarito de uma página não necessariamente começa em 1). A letra não é
+restrita a A-E: questão anulada aparece como `X`, e descartá-la desalinharia
+a correlação das questões seguintes na mesma página.
 
 ## Execução do scraper
 

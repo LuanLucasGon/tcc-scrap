@@ -24,6 +24,7 @@ class QuestionDTO:
     associated_text: str | None
     enunciation: str | None
     alternatives: dict[str, Any]
+    correct_answer: str | None
     deleted: bool
     created_at: datetime | None
     updated_at: datetime | None
@@ -46,6 +47,7 @@ class QuestionDTO:
             associated_text=entity.associated_text,
             enunciation=entity.enunciation,
             alternatives=dict(entity.alternatives or {}),
+            correct_answer=entity.correct_answer,
             deleted=bool(entity.deleted),
             created_at=entity.created_at,
             updated_at=entity.updated_at,

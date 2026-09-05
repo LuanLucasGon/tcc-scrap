@@ -42,6 +42,7 @@ class Question(Base):
     associated_text: Mapped[str | None] = mapped_column(Text)
     enunciation: Mapped[str | None] = mapped_column(Text)
     alternatives: Mapped[dict | None] = mapped_column(JSONB)
+    correct_answer: Mapped[str | None] = mapped_column(String)
 
     deleted: Mapped[bool] = mapped_column(
         Boolean, nullable=False, server_default="false"

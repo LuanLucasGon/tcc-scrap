@@ -1,9 +1,12 @@
+import uuid
+
 import pytest
 
 from main import persist_questions
 from question.dtos.question_scraped_dto import QuestionScrapedDTO
 from question.entity.question import Question
 from question.repository.upsert_result import UpsertResult
+from shared.normalization import normalize_name
 from subject.entity.subject import Subject
 from topic.entity.topic import Topic
 
@@ -66,20 +69,40 @@ def test_persist_questions_reuses_existing_topics_across_calls(db_session):
 
 
 def test_persist_questions_same_topic_name_stays_independent_per_subject(db_session):
-    persist_questions(
-        db_session, [_dto("Q1", subject="Matemática", topics=["Geral"])]
-    )
-    persist_questions(
-        db_session, [_dto("Q2", subject="História", topics=["Geral"])]
-    )
+    # Nomes exclusivos deste teste — ver comentário em
+    # test_persist_questions_skips_topic_creation_when_dto_has_no_topics.
+    subject_a = f"Matéria A {uuid.uuid4()}"
+    subject_b = f"Matéria B {uuid.uuid4()}"
+    persist_questions(db_session, [_dto("Q1", subject=subject_a, topics=["Geral"])])
+    persist_questions(db_session, [_dto("Q2", subject=subject_b, topics=["Geral"])])
 
-    assert db_session.query(Topic).filter_by(name="GERAL").count() == 2
+    subject_ids = [
+        subject.id
+        for subject in db_session.query(Subject).filter(
+            Subject.name.in_([normalize_name(subject_a), normalize_name(subject_b)])
+        )
+    ]
+    count = (
+        db_session.query(Topic)
+        .filter(Topic.subject_id.in_(subject_ids), Topic.name == "GERAL")
+        .count()
+    )
+    assert count == 2
 
 
 def test_persist_questions_skips_topic_creation_when_dto_has_no_topics(db_session):
-    persist_questions(db_session, [_dto("Q1", subject="Matemática", topics=[])])
+    # Nome exclusivo deste teste: "Matemática"/"História" etc. já existem com
+    # tópicos reais no banco de dev compartilhado (o scraper roda contra o
+    # mesmo Postgres), então "zero tópicos" só é uma asserção segura para uma
+    # matéria que nada além deste teste poderia ter criado.
+    subject_name = f"Matéria sem tópicos {uuid.uuid4()}"
+    persist_questions(db_session, [_dto("Q1", subject=subject_name, topics=[])])
 
-    subject = db_session.query(Subject).filter_by(name="MATEMATICA").one()
+    subject = (
+        db_session.query(Subject)
+        .filter_by(name=normalize_name(subject_name))
+        .one()
+    )
     assert db_session.query(Topic).filter_by(subject_id=subject.id).count() == 0
 
 

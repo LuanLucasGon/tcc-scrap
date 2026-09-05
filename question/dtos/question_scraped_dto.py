@@ -23,6 +23,7 @@ class QuestionScrapedDTO:
     associated_text: str | None = None
     enunciation: str | None = None
     alternatives: dict[str, Any] = field(default_factory=dict)
+    correct_answer: str | None = None
 
     @classmethod
     def from_scrape(cls, payload: dict[str, Any]) -> QuestionScrapedDTO:

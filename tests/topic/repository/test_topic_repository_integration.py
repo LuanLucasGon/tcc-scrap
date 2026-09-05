@@ -47,7 +47,11 @@ def test_same_topic_name_is_independent_across_subjects(db_session):
     history_result = repo.get_or_create_many(history_id, ["Geral"])
 
     assert math_result["Geral"] != history_result["Geral"]
-    count = db_session.query(Topic).filter_by(name="GERAL").count()
+    count = (
+        db_session.query(Topic)
+        .filter(Topic.subject_id.in_([math_id, history_id]), Topic.name == "GERAL")
+        .count()
+    )
     assert count == 2
 
 

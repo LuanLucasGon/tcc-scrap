@@ -1,17 +1,17 @@
-from questions.dtos.question_scraped_dto import QuestionScrapedDTO
+from question.dtos.question_scraped_dto import QuestionScrapedDTO
 
 
-def test_from_scrape_maps_scraper_payload_to_snake_case_fields():
+def test_from_scrape_builds_dto_from_snake_case_payload():
     payload = {
-        "questionId": "Q123",
+        "question_id": "Q123",
         "subject": "Matemática",
         "topics": ["Álgebra", "Funções"],
         "year": "2022",
-        "examBoard": "INEP",
+        "exam_board": "INEP",
         "organization": "ENEM",
-        "examTitle": "ENEM 2022",
-        "examUrl": "https://example.com/prova",
-        "associatedText": "Texto base",
+        "exam_title": "ENEM 2022",
+        "exam_url": "https://example.com/prova",
+        "associated_text": "Texto base",
         "enunciation": "Qual o valor de x?",
         "alternatives": {"A": {"text": "1", "images": []}},
     }
@@ -32,7 +32,7 @@ def test_from_scrape_maps_scraper_payload_to_snake_case_fields():
 
 
 def test_from_scrape_defaults_missing_optional_fields():
-    dto = QuestionScrapedDTO.from_scrape({"questionId": "Q1"})
+    dto = QuestionScrapedDTO.from_scrape({"question_id": "Q1"})
 
     assert dto.question_id == "Q1"
     assert dto.subject is None

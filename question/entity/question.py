@@ -1,15 +1,18 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, String, Text, func
+from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, func
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from infra.database import Base
+from subject.entity.subject import Subject
 
 
-class Questao(Base):
-    __tablename__ = "questao"
+class Question(Base):
+    """Modelo SQLAlchemy da tabela ``question``."""
+
+    __tablename__ = "question"
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -17,9 +20,18 @@ class Questao(Base):
         server_default=func.gen_random_uuid(),
     )
 
-    question_id: Mapped[str] = mapped_column(String, nullable=False, unique=True, index=True)
+    question_id: Mapped[str] = mapped_column(
+        String, nullable=False, unique=True, index=True
+    )
 
-    subject: Mapped[str | None] = mapped_column(String)
+    subject_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("subject.id"),
+        nullable=False,
+        index=True,
+    )
+    subject: Mapped[Subject] = relationship(lazy="joined")
+
     topics: Mapped[list[str] | None] = mapped_column(ARRAY(String))
     year: Mapped[str | None] = mapped_column(String)
     exam_board: Mapped[str | None] = mapped_column(String)
@@ -31,7 +43,7 @@ class Questao(Base):
     enunciation: Mapped[str | None] = mapped_column(Text)
     alternatives: Mapped[dict | None] = mapped_column(JSONB)
 
-    excluido: Mapped[bool] = mapped_column(
+    deleted: Mapped[bool] = mapped_column(
         Boolean, nullable=False, server_default="false"
     )
 
@@ -46,4 +58,4 @@ class Questao(Base):
     )
 
     def __repr__(self) -> str:
-        return f"<Questao question_id={self.question_id!r} excluido={self.excluido}>"
+        return f"<Question question_id={self.question_id!r} deleted={self.deleted}>"

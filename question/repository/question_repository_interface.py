@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from questions.dtos.question_dto import QuestionDTO
-from questions.dtos.question_scraped_dto import QuestionScrapedDTO
-from questions.repository.upsert_result import UpsertResult
+from question.dtos.question_dto import QuestionDTO
+from question.dtos.question_scraped_dto import QuestionScrapedDTO
+from question.repository.upsert_result import UpsertResult
 
 
 class QuestionRepositoryInterface(ABC):
@@ -12,7 +12,11 @@ class QuestionRepositoryInterface(ABC):
 
     @abstractmethod
     def upsert_many(self, dtos: list[QuestionScrapedDTO]) -> UpsertResult:
-        """Insere ou atualiza questões usando ``question_id`` como chave de conflito."""
+        """Insere ou atualiza questões usando ``question_id`` como chave de conflito.
+
+        Resolve a matéria de cada questão (nome -> FK ``subject_id``), criando a
+        linha em ``subject`` quando ainda não existir.
+        """
 
     @abstractmethod
     def get_by_question_id(self, question_id: str) -> QuestionDTO | None:
@@ -20,4 +24,4 @@ class QuestionRepositoryInterface(ABC):
 
     @abstractmethod
     def list_active(self) -> list[QuestionDTO]:
-        """Lista as questões não excluídas (``excluido = false``)."""
+        """Lista as questões não excluídas (``deleted = false``)."""

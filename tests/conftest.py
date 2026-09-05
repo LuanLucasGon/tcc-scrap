@@ -5,7 +5,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from infra.database import Base, get_database_url
-from questions.entity.questao import Questao  # noqa: F401  (register table on metadata)
+
+# Import every entity so its table is registered on Base.metadata before create_all.
+from subject.entity.subject import Subject  # noqa: F401
+from question.entity.question import Question  # noqa: F401
 
 
 def _database_reachable(url: str) -> bool:
@@ -23,7 +26,10 @@ def _database_reachable(url: str) -> bool:
 def db_engine():
     url = get_database_url()
     if not _database_reachable(url):
-        pytest.skip("Postgres indisponível — rode `docker compose up -d db` para os testes de integração")
+        pytest.skip(
+            "Postgres indisponível — rode `docker compose up -d db` "
+            "para os testes de integração"
+        )
     engine = create_engine(url, future=True)
     Base.metadata.create_all(engine)
     yield engine

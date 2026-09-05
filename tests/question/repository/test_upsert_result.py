@@ -1,4 +1,4 @@
-from questions.repository.upsert_result import UpsertResult
+from question.repository.upsert_result import UpsertResult
 
 
 def test_counts_inserts_when_no_ids_exist_yet():

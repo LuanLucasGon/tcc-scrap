@@ -60,22 +60,31 @@ Dependências: `pip install -r requirements.txt`.
 
 A infraestrutura de acesso fica em `infra/` (`infra/database.py` monta a URL a
 partir das env vars e expõe `engine` / `SessionLocal` / `Base`). Cada entidade
-do domínio tem seu próprio pacote em `questions/` seguindo Clean Architecture:
+do domínio tem seu próprio pacote (singular, com o nome da tabela) seguindo
+Clean Architecture:
 
 ```
-infra/database.py                        engine, SessionLocal, Base
-questions/entity/questao.py              modelo SQLAlchemy Questao
-questions/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
-questions/dtos/question_dto.py           DTO de saída (leituras do repositório)
-questions/repository/                    porta + adapter (Advanced Alchemy)
+infra/database.py                       engine, SessionLocal, Base
+
+subject/normalization.py                normalize_subject_name(raw) -> str  (pura)
+subject/entity/subject.py               modelo SQLAlchemy Subject (tabela "subject")
+subject/dtos/subject_dto.py             DTO de saída
+subject/repository/                     porta + SubjectRepository
+
+question/entity/question.py             modelo Question (tabela "question")
+question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
+question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
+question/repository/                    porta + QuestionRepository
 ```
 
-O `QuestionRepository` estende o *service layer* do `advanced-alchemy` (o mais
-próximo de Spring Data / Hibernate em Python): herda CRUD e consultas prontos e
-converte o `QuestionScrapedDTO` em entidade sozinho (os campos do DTO já têm o
-nome das colunas). Recebe a `Session` de quem chama e implementa
-`QuestionRepositoryInterface` (`upsert_many`, `get_by_question_id`,
-`list_active`). As migrations ficam em `alembic/versions/`.
+Os repositórios estendem o *service layer* do `advanced-alchemy` (o mais próximo
+de Spring Data / Hibernate em Python): herdam CRUD e consultas prontos e recebem
+a `Session` de quem chama.
+
+`QuestionRepository.upsert_many` resolve a matéria de cada questão: normaliza o
+nome (`"Matemática"` → `MATEMATICA`), busca/cria a linha em `subject` via
+`SubjectRepository` e grava a FK `question.subject_id`. Questão sem matéria →
+`ValueError`. As migrations ficam em `alembic/versions/`.
 
 ```bash
 # Aplicar todas as migrations pendentes
@@ -95,13 +104,17 @@ alembic history
 alembic revision --autogenerate -m "descricao da mudanca"
 ```
 
-### Tabela `questao`
+### Tabelas `subject` e `question`
 
-`id` (uuid, PK, `gen_random_uuid()`), `question_id` (único, ex.: `Q3761251`),
-campos da questão (`subject`, `topics`, `year`, `exam_board`, `organization`,
-`exam_title`, `exam_url`, `associated_text`, `enunciation`, `alternatives` jsonb),
-`excluido` (boolean, default `false`, para soft delete) e `created_at` /
-`updated_at`.
+`subject`: `id` (uuid, PK, `gen_random_uuid()`), `name` (varchar **único** — só a
+forma normalizada, ex.: `MATEMATICA`), `active` (boolean, default `true`),
+`deleted` (boolean, default `false`, soft delete), `created_at` / `updated_at`.
+
+`question`: `id` (uuid, PK), `question_id` (único, ex.: `Q3761251`),
+`subject_id` (uuid, **FK NOT NULL** → `subject.id`), `topics` (array), `year`,
+`exam_board`, `organization`, `exam_title`, `exam_url`, `associated_text`,
+`enunciation`, `alternatives` (jsonb), `deleted` (boolean, default `false`,
+soft delete), `created_at` / `updated_at`.
 
 ## Execução do scraper
 
@@ -111,12 +124,13 @@ python main.py
 ```
 
 O `main.py` grava os resultados em **`questions.json`** (para comparação) e faz
-**upsert** na tabela `questao`, com deduplicação por `question_id`:
+**upsert** na tabela `question`, com deduplicação por `question_id` (e cria/reusa
+as `subject` conforme necessário):
 
 - questão nova → inserida;
 - `question_id` já existente → os campos são atualizados e `updated_at` avança
-  (`created_at` e `excluido` são preservados — reprocessar não "ressuscita" uma
-  questão marcada como `excluido = true`).
+  (`created_at` e `deleted` são preservados — reprocessar não "ressuscita" uma
+  questão marcada como `deleted = true`).
 
 Rodar o script quantas vezes quiser não cria linhas duplicadas.
 
@@ -126,6 +140,6 @@ Rodar o script quantas vezes quiser não cria linhas duplicadas.
 pytest
 ```
 
-Os testes de unidade (DTOs, mapeamento, contagem de upsert) rodam sem banco.
-Os testes de integração do `QuestionRepository` precisam do Postgres no ar
+Os testes de unidade (normalização de matéria, DTOs, contagem de upsert) rodam
+sem banco. Os testes de integração dos repositórios precisam do Postgres no ar
 (`docker compose up -d db`) — sem ele, são automaticamente pulados (`skip`).

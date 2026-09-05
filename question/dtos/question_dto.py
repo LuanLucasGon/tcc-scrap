@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 
-from questions.entity.questao import Questao
+from question.entity.question import Question
 
 
 @dataclass
@@ -13,7 +13,8 @@ class QuestionDTO:
 
     id: str | None
     question_id: str
-    subject: str | None
+    subject_id: str | None
+    subject_name: str | None
     topics: list[str]
     year: str | None
     exam_board: str | None
@@ -23,16 +24,19 @@ class QuestionDTO:
     associated_text: str | None
     enunciation: str | None
     alternatives: dict[str, Any]
-    excluido: bool
+    deleted: bool
     created_at: datetime | None
     updated_at: datetime | None
 
     @classmethod
-    def from_entity(cls, entity: Questao) -> QuestionDTO:
+    def from_entity(cls, entity: Question) -> QuestionDTO:
         return cls(
             id=str(entity.id) if entity.id is not None else None,
             question_id=entity.question_id,
-            subject=entity.subject,
+            subject_id=(
+                str(entity.subject_id) if entity.subject_id is not None else None
+            ),
+            subject_name=entity.subject.name if entity.subject is not None else None,
             topics=list(entity.topics or []),
             year=entity.year,
             exam_board=entity.exam_board,
@@ -42,7 +46,7 @@ class QuestionDTO:
             associated_text=entity.associated_text,
             enunciation=entity.enunciation,
             alternatives=dict(entity.alternatives or {}),
-            excluido=bool(entity.excluido),
+            deleted=bool(entity.deleted),
             created_at=entity.created_at,
             updated_at=entity.updated_at,
         )

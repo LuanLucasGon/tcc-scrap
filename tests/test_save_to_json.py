@@ -1,7 +1,7 @@
 import json
 
-from main import saveToJson
-from questions.dtos.question_scraped_dto import QuestionScrapedDTO
+from main import save_to_json
+from question.dtos.question_scraped_dto import QuestionScrapedDTO
 
 
 def test_save_to_json_serializes_scraped_dtos(tmp_path):
@@ -11,7 +11,7 @@ def test_save_to_json_serializes_scraped_dtos(tmp_path):
         QuestionScrapedDTO(question_id="Q2"),
     ]
 
-    saveToJson(dtos, str(target))
+    save_to_json(dtos, str(target))
 
     data = json.loads(target.read_text(encoding="utf-8"))
     assert data[0]["question_id"] == "Q1"

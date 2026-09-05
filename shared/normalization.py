@@ -16,8 +16,8 @@ _NON_ALNUM = re.compile(r"[^A-Z0-9\s]")
 _SPACE_RUN = re.compile(r"\s+")
 
 
-def normalize_subject_name(raw: str) -> str:
-    """Normaliza o nome de uma matéria para servir de chave única na tabela ``subject``.
+def normalize_name(raw: str) -> str:
+    """Normaliza um nome para servir de chave única (usado por ``subject`` e ``topic``).
 
     - remove acentos e cedilha (``ç`` -> ``c``);
     - remove caracteres invisíveis / zero-width;
@@ -34,3 +34,21 @@ def normalize_subject_name(raw: str) -> str:
     text = text.upper()
     text = _NON_ALNUM.sub(" ", text)
     return _SPACE_RUN.sub("_", text.strip())
+
+
+def normalize_many(raw_names: list[str], *, entity_label: str) -> dict[str, str]:
+    """Mapeia cada nome cru distinto (ordem preservada) para sua forma normalizada.
+
+    Levanta ``ValueError`` se algum nome normalizar para string vazia —
+    ``entity_label`` identifica a entidade na mensagem (ex.: ``"matéria"``,
+    ``"tópico"``).
+    """
+    normalized_name_by_raw_name = {
+        raw_name: normalize_name(raw_name) for raw_name in dict.fromkeys(raw_names)
+    }
+    for raw_name, normalized_name in normalized_name_by_raw_name.items():
+        if not normalized_name:
+            raise ValueError(
+                f"nome de {entity_label} inválido (normaliza para vazio): {raw_name!r}"
+            )
+    return normalized_name_by_raw_name

@@ -5,9 +5,9 @@ from uuid import UUID
 from advanced_alchemy.repository import SQLAlchemySyncRepository
 from advanced_alchemy.service import SQLAlchemySyncRepositoryService
 
+from shared.normalization import normalize_many, normalize_name
 from subject.dtos.subject_dto import SubjectDTO
 from subject.entity.subject import Subject
-from subject.normalization import normalize_subject_name
 from subject.repository.subject_repository_interface import SubjectRepositoryInterface
 
 
@@ -27,7 +27,7 @@ class SubjectRepository(
     repository_type = _SubjectRepository
 
     def get_or_create_many(self, raw_names: list[str]) -> dict[str, UUID]:
-        normalized_name_by_raw_name = self._normalize_and_validate(raw_names)
+        normalized_name_by_raw_name = normalize_many(raw_names, entity_label="matéria")
         normalized_names = set(normalized_name_by_raw_name.values())
 
         id_by_normalized_name = {
@@ -49,25 +49,8 @@ class SubjectRepository(
             for raw_name, normalized_name in normalized_name_by_raw_name.items()
         }
 
-    @staticmethod
-    def _normalize_and_validate(raw_names: list[str]) -> dict[str, str]:
-        """Mapeia cada nome cru distinto para sua forma normalizada.
-
-        Levanta ``ValueError`` se algum nome normalizar para string vazia.
-        """
-        normalized_name_by_raw_name = {
-            raw_name: normalize_subject_name(raw_name)
-            for raw_name in dict.fromkeys(raw_names)
-        }
-        for raw_name, normalized_name in normalized_name_by_raw_name.items():
-            if not normalized_name:
-                raise ValueError(
-                    f"nome de matéria inválido (normaliza para vazio): {raw_name!r}"
-                )
-        return normalized_name_by_raw_name
-
     def get_by_name(self, name: str) -> SubjectDTO | None:
-        entity = self.get_one_or_none(name=normalize_subject_name(name))
+        entity = self.get_one_or_none(name=normalize_name(name))
         return SubjectDTO.from_entity(entity) if entity is not None else None
 
     def list_active(self) -> list[SubjectDTO]:

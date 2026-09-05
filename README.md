@@ -65,11 +65,16 @@ Clean Architecture:
 
 ```
 infra/database.py                       engine, SessionLocal, Base
+shared/normalization.py                 normalize_name(raw) -> str  (pura; usada
+                                         por subject/ e topic/)
 
-subject/normalization.py                normalize_subject_name(raw) -> str  (pura)
 subject/entity/subject.py               modelo SQLAlchemy Subject (tabela "subject")
 subject/dtos/subject_dto.py             DTO de saída
 subject/repository/                     porta + SubjectRepository
+
+topic/entity/topic.py                   modelo Topic (tabela "topic", FK -> subject)
+topic/dtos/topic_dto.py                 DTO de saída
+topic/repository/                       porta + TopicRepository
 
 question/entity/question.py             modelo Question (tabela "question")
 question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
@@ -79,12 +84,18 @@ question/repository/                    porta + QuestionRepository
 
 Os repositórios estendem o *service layer* do `advanced-alchemy` (o mais próximo
 de Spring Data / Hibernate em Python): herdam CRUD e consultas prontos e recebem
-a `Session` de quem chama.
+a `Session` de quem chama. Nenhum repositório resolve entidade de outro
+repositório (ex.: `QuestionRepository` não cria `Subject`/`Topic`) — essa
+orquestração é feita por `main.persist_questions`, preparação para um futuro
+Service.
 
-`QuestionRepository.upsert_many` resolve a matéria de cada questão: normaliza o
-nome (`"Matemática"` → `MATEMATICA`), busca/cria a linha em `subject` via
-`SubjectRepository` e grava a FK `question.subject_id`. Questão sem matéria →
-`ValueError`. As migrations ficam em `alembic/versions/`.
+`main.persist_questions` resolve a matéria de cada questão (normaliza o nome,
+`"Matemática"` → `MATEMATICA`, busca/cria via `SubjectRepository`), resolve os
+tópicos de cada questão (`dto.topics`) via `TopicRepository` — vinculados ao
+`subject_id` já resolvido, únicos **por matéria** e não globalmente — e só então
+chama `QuestionRepository.upsert_many` com o `subject_id` de cada questão já
+pronto, gravando a FK `question.subject_id`. Questão sem matéria → `ValueError`.
+As migrations ficam em `alembic/versions/`.
 
 ```bash
 # Aplicar todas as migrations pendentes
@@ -104,17 +115,24 @@ alembic history
 alembic revision --autogenerate -m "descricao da mudanca"
 ```
 
-### Tabelas `subject` e `question`
+### Tabelas `subject`, `topic` e `question`
 
 `subject`: `id` (uuid, PK, `gen_random_uuid()`), `name` (varchar **único** — só a
 forma normalizada, ex.: `MATEMATICA`), `active` (boolean, default `true`),
 `deleted` (boolean, default `false`, soft delete), `created_at` / `updated_at`.
 
+`topic`: `id` (uuid, PK), `subject_id` (uuid, **FK NOT NULL** → `subject.id`),
+`name` (varchar, forma normalizada; **único por subject** — `UNIQUE(subject_id,
+name)`, não globalmente, então o mesmo nome pode existir em matérias diferentes),
+`active` (boolean, default `true`), `deleted` (boolean, default `false`, soft
+delete), `created_at` / `updated_at`.
+
 `question`: `id` (uuid, PK), `question_id` (único, ex.: `Q3761251`),
-`subject_id` (uuid, **FK NOT NULL** → `subject.id`), `topics` (array), `year`,
-`exam_board`, `organization`, `exam_title`, `exam_url`, `associated_text`,
-`enunciation`, `alternatives` (jsonb), `deleted` (boolean, default `false`,
-soft delete), `created_at` / `updated_at`.
+`subject_id` (uuid, **FK NOT NULL** → `subject.id`), `topics` (array — nomes
+crus do scraper, sem FK para `topic`), `year`, `exam_board`, `organization`,
+`exam_title`, `exam_url`, `associated_text`, `enunciation`, `alternatives`
+(jsonb), `deleted` (boolean, default `false`, soft delete), `created_at` /
+`updated_at`.
 
 ## Execução do scraper
 

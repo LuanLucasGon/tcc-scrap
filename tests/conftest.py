@@ -9,6 +9,7 @@ from infra.database import Base, get_database_url
 # Import every entity so its table is registered on Base.metadata before create_all.
 from subject.entity.subject import Subject  # noqa: F401
 from question.entity.question import Question  # noqa: F401
+from topic.entity.topic import Topic  # noqa: F401
 
 
 def _database_reachable(url: str) -> bool:

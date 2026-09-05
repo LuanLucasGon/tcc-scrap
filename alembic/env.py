@@ -10,6 +10,7 @@ from infra.database import Base, get_database_url
 # Import every entity so its table is registered on Base.metadata for autogenerate.
 from subject.entity import subject  # noqa: F401
 from question.entity import question  # noqa: F401
+from topic.entity import topic  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

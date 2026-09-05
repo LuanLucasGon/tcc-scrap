@@ -11,11 +11,16 @@ seu próprio pacote (singular, nome da tabela), com `infra/database.py` centrali
 
 ```
 infra/database.py                       engine, SessionLocal, Base
+shared/normalization.py                 normalize_name(raw) -> str  (pura; usada
+                                         por subject/ e topic/)
 
-subject/normalization.py                normalize_subject_name(raw) -> str  (pura)
 subject/entity/subject.py               modelo SQLAlchemy Subject (tabela "subject")
 subject/dtos/subject_dto.py             DTO de saída
 subject/repository/                     porta + SubjectRepository
+
+topic/entity/topic.py                   modelo Topic (tabela "topic", FK -> subject)
+topic/dtos/topic_dto.py                 DTO de saída
+topic/repository/                       porta + TopicRepository
 
 question/entity/question.py             modelo Question (tabela "question")
 question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
@@ -25,7 +30,9 @@ question/repository/                    porta + QuestionRepository
 
 Os repositórios estendem o *service layer* do `advanced-alchemy` (equivalente a
 Spring Data/Hibernate em Python): herdam CRUD e consultas prontas e recebem a
-`Session` de quem chama.
+`Session` de quem chama. Nenhum repositório resolve entidade de outro repositório
+(ex.: `QuestionRepository` não cria `Subject`/`Topic`) — quem orquestra essa
+resolução é `main.persist_questions` (preparação para um futuro Service).
 
 ## Core Development Rules
 
@@ -121,13 +128,24 @@ alembic revision --autogenerate -m "descricao"      # gera nova migration
 
 - `subject`: `id` (uuid, PK), `name` (varchar único, forma normalizada, ex. `MATEMATICA`),
   `active`, `deleted` (soft delete), `created_at` / `updated_at`
+- `topic`: `id` (uuid, PK), `subject_id` (FK NOT NULL → `subject.id`),
+  `name` (varchar, forma normalizada; único **por subject**, não globalmente —
+  `UNIQUE(subject_id, name)`), `active`, `deleted` (soft delete),
+  `created_at` / `updated_at`
 - `question`: `id` (uuid, PK), `question_id` (único, ex. `Q3761251`),
-  `subject_id` (FK NOT NULL → `subject.id`), `topics` (array), `year`, `exam_board`,
-  `organization`, `exam_title`, `exam_url`, `associated_text`, `enunciation`,
+  `subject_id` (FK NOT NULL → `subject.id`), `topics` (array — nomes crus do
+  scraper, sem FK para `topic`), `year`, `exam_board`, `organization`,
+  `exam_title`, `exam_url`, `associated_text`, `enunciation`,
   `alternatives` (jsonb), `deleted` (soft delete), `created_at` / `updated_at`
 
-`QuestionRepository.upsert_many` normaliza a matéria, busca/cria em `subject` via
-`SubjectRepository` e grava a FK. Questão sem matéria → `ValueError`.
+`main.persist_questions` orquestra a persistência de cada leva de questões
+extraídas: normaliza a matéria e busca/cria em `subject` via `SubjectRepository`;
+para os tópicos de cada questão (`dto.topics`), busca/cria em `topic` via
+`TopicRepository`, vinculados ao `subject_id` já resolvido; só então chama
+`QuestionRepository.upsert_many` com o `subject_id` de cada questão já resolvido.
+Questão sem matéria → `ValueError`. Nenhum repositório resolve outro repositório —
+essa orquestração é responsabilidade de quem chama (hoje `main.py`, preparação
+para um futuro Service).
 
 ## Execução do scraper
 

@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import asdict
+from uuid import UUID
 
 from advanced_alchemy.repository import SQLAlchemySyncRepository
 from advanced_alchemy.service import SQLAlchemySyncRepositoryService
 from sqlalchemy import select
-from sqlalchemy.orm import Session
 
 from question.dtos.question_dto import QuestionDTO
 from question.dtos.question_scraped_dto import QuestionScrapedDTO
@@ -14,8 +14,6 @@ from question.repository.question_repository_interface import (
     QuestionRepositoryInterface,
 )
 from question.repository.upsert_result import UpsertResult
-from subject.repository.subject_repository import SubjectRepository
-from subject.repository.subject_repository_interface import SubjectRepositoryInterface
 
 MATCH_FIELD = "question_id"
 
@@ -30,36 +28,22 @@ class QuestionRepository(
 ):
     """Persistência de questões sobre o service layer do Advanced Alchemy.
 
-    Recebe a ``Session`` de quem chama; a transação é do chamador. A resolução
-    matéria -> FK usa um ``SubjectRepository`` sobre a mesma ``Session`` (injetável
-    para testes).
+    Recebe a ``Session`` de quem chama; a transação é do chamador. Não resolve
+    matéria/tópicos — isso é responsabilidade de quem orquestra a persistência
+    (hoje, ``main.persist_questions``; no futuro, um service), não deste
+    repositório. ``upsert_many`` espera o ``subject_id`` de cada questão já
+    resolvido em ``subject_id_by_name``.
     """
 
     repository_type = _QuestionRepository
 
-    def __init__(
+    def upsert_many(
         self,
-        session: Session,
-        *,
-        subject_repository: SubjectRepositoryInterface | None = None,
-        **kwargs: object,
-    ) -> None:
-        super().__init__(session, **kwargs)
-        self._subjects: SubjectRepositoryInterface = (
-            subject_repository or SubjectRepository(session=session)
-        )
-
-    def upsert_many(self, dtos: list[QuestionScrapedDTO]) -> UpsertResult:
+        dtos: list[QuestionScrapedDTO],
+        subject_id_by_name: dict[str, UUID],
+    ) -> UpsertResult:
         if not dtos:
             return UpsertResult(inserted=0, updated=0)
-
-        for dto in dtos:
-            if not (dto.subject and dto.subject.strip()):
-                raise ValueError(f"questão {dto.question_id!r} sem matéria")
-
-        subject_id_by_name = self._subjects.get_or_create_many(
-            [dto.subject for dto in dtos]
-        )
 
         rows = []
         for dto in dtos:

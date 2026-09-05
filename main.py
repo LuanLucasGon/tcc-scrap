@@ -4,10 +4,14 @@ from urllib.parse import urljoin
 
 import json
 from playwright.sync_api import Browser, Locator, Page, Playwright, sync_playwright
+from sqlalchemy.orm import Session
 
 from infra.database import SessionLocal
 from question.dtos.question_scraped_dto import QuestionScrapedDTO
 from question.repository.question_repository import QuestionRepository
+from question.repository.upsert_result import UpsertResult
+from subject.repository.subject_repository import SubjectRepository
+from topic.repository.topic_repository import TopicRepository
 
 BASE_URL: str = "https://www.qconcursos.com"
 URL_ENEM: str = "https://www.qconcursos.com/questoes-do-enem/questoes"
@@ -218,6 +222,34 @@ def save_to_json(questions: list[QuestionScrapedDTO], file_name: str) -> None:
     print(f"Saved {len(data)} question to file: {file_name}")
 
 
+def persist_questions(
+    session: Session, questions: list[QuestionScrapedDTO]
+) -> UpsertResult:
+    """Orquestra a persistência: resolve subject/topics e faz upsert das questões.
+
+    Preparação para um futuro Service — nenhum repositório resolve matéria ou
+    tópico de outro repositório; quem orquestra essa resolução é quem chama.
+    """
+    if not questions:
+        return UpsertResult(inserted=0, updated=0)
+
+    for dto in questions:
+        if not (dto.subject and dto.subject.strip()):
+            raise ValueError(f"questão {dto.question_id!r} sem matéria")
+
+    subjects = SubjectRepository(session=session)
+    topics = TopicRepository(session=session)
+    question_repository = QuestionRepository(session=session)
+
+    subject_id_by_name = subjects.get_or_create_many([dto.subject for dto in questions])
+
+    for dto in questions:
+        if dto.topics:
+            topics.get_or_create_many(subject_id_by_name[dto.subject], dto.topics)
+
+    return question_repository.upsert_many(questions, subject_id_by_name)
+
+
 def save_to_database(questions: list[QuestionScrapedDTO]) -> None:
     """Faz upsert das questões extraídas na tabela ``question``."""
     dtos = [question for question in questions if question.question_id]
@@ -226,7 +258,7 @@ def save_to_database(questions: list[QuestionScrapedDTO]) -> None:
         return
 
     with SessionLocal() as session, session.begin():
-        result = QuestionRepository(session=session).upsert_many(dtos)
+        result = persist_questions(session, dtos)
 
     print(
         f"Banco: {result.inserted} inseridas, {result.updated} atualizadas "

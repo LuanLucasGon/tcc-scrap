@@ -1,5 +1,20 @@
 # tcc-scrap
 
+## Estrutura do monorepo
+
+Este repositório tem dois projetos irmãos, que compartilham apenas o
+mesmo Postgres (schema gerido pelo Alembic do scraper):
+
+- `scraper/` — scraping do QConcursos e persistência (o que já existia,
+  agora dentro desta pasta). Comandos abaixo devem rodar de dentro dela
+  (`cd scraper`).
+- `api/` — FastAPI + SQLModel, expõe os mesmos dados via HTTP. Mapeia as
+  tabelas já criadas pelo scraper; nunca roda migration. Comandos rodam
+  de dentro dela (`cd api`).
+
+O `docker-compose.yml` e o `.env` continuam na raiz e valem para os dois
+projetos.
+
 ## Banco de dados (PostgreSQL via Docker)
 
 O `docker-compose.yml` sobe um PostgreSQL 16 com o banco `projectTCC`.
@@ -56,35 +71,38 @@ postgresql://tcc:tcc@localhost:5432/projectTCC
 
 ## Migrations (Alembic)
 
+Comandos desta seção rodam de dentro de `scraper/` (`cd scraper`).
+
 Dependências: `pip install -r requirements.txt`.
 
-A infraestrutura de acesso fica em `infra/` (`infra/database.py` monta a URL a
-partir das env vars e expõe `engine` / `SessionLocal` / `Base`). Cada entidade
-do domínio tem seu próprio pacote (singular, com o nome da tabela) seguindo
-Clean Architecture:
+A infraestrutura de acesso fica em `scraper/infra/`
+(`scraper/infra/database.py` monta a URL a partir das env vars e expõe
+`engine` / `SessionLocal` / `Base`). Cada entidade do domínio tem seu
+próprio pacote (singular, com o nome da tabela) seguindo Clean
+Architecture:
 
 ```
-infra/database.py                       engine, SessionLocal, Base
-shared/normalization.py                 normalize_name(raw) -> str  (pura; usada
+scraper/infra/database.py               engine, SessionLocal, Base
+scraper/shared/normalization.py         normalize_name(raw) -> str  (pura; usada
                                          por subject/ e topic/)
 
-subject/entity/subject.py               modelo SQLAlchemy Subject (tabela "subject")
-subject/dtos/subject_dto.py             DTO de saída
-subject/repository/                     porta + SubjectRepository
+scraper/subject/entity/subject.py       modelo SQLAlchemy Subject (tabela "subject")
+scraper/subject/dtos/subject_dto.py     DTO de saída
+scraper/subject/repository/             porta + SubjectRepository
 
-topic/entity/topic.py                   modelo Topic (tabela "topic", FK -> subject)
-topic/dtos/topic_dto.py                 DTO de saída
-topic/repository/                       porta + TopicRepository
+scraper/topic/entity/topic.py           modelo Topic (tabela "topic", FK -> subject)
+scraper/topic/dtos/topic_dto.py         DTO de saída
+scraper/topic/repository/               porta + TopicRepository
 
-questionfile/entity/question_file.py    modelo QuestionFile (tabela "questionfile",
-                                         binário de imagem)
-questionfile/dtos/question_file_dto.py   DTO de saída (sem o binário)
-questionfile/repository/                 porta + QuestionFileRepository
+scraper/questionfile/entity/question_file.py    modelo QuestionFile (tabela
+                                                 "questionfile", binário de imagem)
+scraper/questionfile/dtos/question_file_dto.py  DTO de saída (sem o binário)
+scraper/questionfile/repository/                porta + QuestionFileRepository
 
-question/entity/question.py             modelo Question (tabela "question")
-question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
-question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
-question/repository/                    porta + QuestionRepository
+scraper/question/entity/question.py             modelo Question (tabela "question")
+scraper/question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
+scraper/question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
+scraper/question/repository/                    porta + QuestionRepository
 ```
 
 Os repositórios estendem o *service layer* do `advanced-alchemy` (o mais próximo
@@ -105,6 +123,8 @@ questão já pronto, gravando a FK `question.subject_id`. Questão sem matéria 
 `ValueError`. As migrations ficam em `alembic/versions/`.
 
 ```bash
+cd scraper
+
 # Aplicar todas as migrations pendentes
 alembic upgrade head
 
@@ -178,6 +198,7 @@ fica como estava (sem virar marcação), sem interromper o resto da leva.
 ## Execução do scraper
 
 ```bash
+cd scraper
 alembic upgrade head   # garante a tabela criada
 python main.py
 ```
@@ -196,9 +217,36 @@ Rodar o script quantas vezes quiser não cria linhas duplicadas.
 ## Testes
 
 ```bash
+cd scraper
 pytest
 ```
 
 Os testes de unidade (normalização de matéria, DTOs, contagem de upsert) rodam
 sem banco. Os testes de integração dos repositórios precisam do Postgres no ar
 (`docker compose up -d db`) — sem ele, são automaticamente pulados (`skip`).
+
+## api/
+
+FastAPI + SQLModel expondo os dados coletados pelo scraper via HTTP.
+Não roda migration — as tabelas já existem, criadas pelo Alembic do
+`scraper/`.
+
+```bash
+cd api
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Health check: `GET /health` → `{"status": "ok"}`.
+
+Segue a mesma Clean Architecture por entidade do scraper
+(`entity/dtos/repository/service/controller`), com uma camada de
+`service/` que o scraper ainda não tem (ver `CLAUDE.md`). Por ora só
+`question/` existe, como referência do padrão — `subject/`, `topic/` e
+`questionfile/` entram quando forem implementados de verdade. Nenhuma
+rota de negócio está montada em `app.main.app` ainda.
+
+```bash
+cd api
+pytest
+```

@@ -123,6 +123,7 @@ out/
 # CLAUDE (config/docs locais, não vai pro remoto)
 # ========================================
 .claude/
+.superpowers/
 
 # ========================================
 # SISTEMA OPERACIONAL

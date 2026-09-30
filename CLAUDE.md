@@ -10,29 +10,44 @@ seu próprio pacote (singular, nome da tabela), com `infra/database.py` centrali
 `engine` / `SessionLocal` / `Base`.
 
 ```
-infra/database.py                       engine, SessionLocal, Base
-shared/normalization.py                 normalize_name(raw) -> str  (pura; usada
-                                         por subject/ e topic/)
+scraper/infra/database.py               engine, SessionLocal, Base
+scraper/shared/normalization.py          normalize_name(raw) -> str  (pura; usada
+                                          por subject/ e topic/)
 
-subject/entity/subject.py               modelo SQLAlchemy Subject (tabela "subject")
-subject/dtos/subject_dto.py             DTO de saída
-subject/repository/                     porta + SubjectRepository
+scraper/subject/entity/subject.py        modelo SQLAlchemy Subject (tabela "subject")
+scraper/subject/dtos/subject_dto.py      DTO de saída
+scraper/subject/repository/              porta + SubjectRepository
 
-topic/entity/topic.py                   modelo Topic (tabela "topic", FK -> subject)
-topic/dtos/topic_dto.py                 DTO de saída
-topic/repository/                       porta + TopicRepository
+scraper/topic/entity/topic.py            modelo Topic (tabela "topic", FK -> subject)
+scraper/topic/dtos/topic_dto.py          DTO de saída
+scraper/topic/repository/                porta + TopicRepository
 
-questionfile/entity/question_file.py    modelo QuestionFile (tabela "questionfile",
-                                         binário de imagem; identidade =
-                                         (question_number_id, url))
-questionfile/dtos/question_file_dto.py   DTO de saída (sem o binário)
-questionfile/repository/                 porta + QuestionFileRepository
+scraper/questionfile/entity/question_file.py    modelo QuestionFile (tabela
+                                                 "questionfile", binário de imagem;
+                                                 identidade = (question_number_id, url))
+scraper/questionfile/dtos/question_file_dto.py  DTO de saída (sem o binário)
+scraper/questionfile/repository/                porta + QuestionFileRepository
 
-question/entity/question.py             modelo Question (tabela "question")
-question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
-question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
-question/repository/                    porta + QuestionRepository
+scraper/question/entity/question.py             modelo Question (tabela "question")
+scraper/question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
+scraper/question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
+scraper/question/repository/                    porta + QuestionRepository
+
+api/infra/database.py                    engine (SQLModel), sem Base/migrations
+api/app/main.py                          instância FastAPI, só GET /health montado
+api/question/                            referência do padrão de entidade da API
+                                          (entity/dtos/repository/service/controller)
 ```
+
+`api/` segue a mesma ideia de Clean Architecture por entidade do
+scraper, mapeando com `SQLModel` as tabelas que o Alembic do `scraper/`
+já criou — a API nunca roda migration. Diferente do scraper, cada
+entidade da API tem uma camada de `service/` explícita entre o
+`controller/` (FastAPI `APIRouter`) e o `repository/` — a camada que o
+scraper ainda não tem (`main.persist_questions` acumula essa
+responsabilidade hoje). Por ora só `question/` existe, como referência;
+`subject/`, `topic/` e `questionfile/` entram quando forem implementados
+de verdade.
 
 Os repositórios estendem o *service layer* do `advanced-alchemy` (equivalente a
 Spring Data/Hibernate em Python): herdam CRUD e consultas prontas e recebem a
@@ -124,6 +139,7 @@ Conexão: `postgresql://tcc:tcc@localhost:5432/projectTCC`
 ## Migrations (Alembic)
 
 ```bash
+cd scraper
 alembic upgrade head                              # aplica migrations pendentes
 alembic downgrade -1                               # reverte a última
 alembic downgrade base                             # reverte tudo
@@ -194,6 +210,7 @@ URL original fica como estava, sem virar marcação.
 ## Execução do scraper
 
 ```bash
+cd scraper
 alembic upgrade head
 python main.py
 ```

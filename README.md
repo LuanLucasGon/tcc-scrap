@@ -76,6 +76,11 @@ topic/entity/topic.py                   modelo Topic (tabela "topic", FK -> subj
 topic/dtos/topic_dto.py                 DTO de saída
 topic/repository/                       porta + TopicRepository
 
+questionfile/entity/question_file.py    modelo QuestionFile (tabela "questionfile",
+                                         binário de imagem)
+questionfile/dtos/question_file_dto.py   DTO de saída (sem o binário)
+questionfile/repository/                 porta + QuestionFileRepository
+
 question/entity/question.py             modelo Question (tabela "question")
 question/dtos/question_scraped_dto.py   DTO de entrada (o que o scraper produz)
 question/dtos/question_dto.py           DTO de saída (subject_id + subject_name)
@@ -85,17 +90,19 @@ question/repository/                    porta + QuestionRepository
 Os repositórios estendem o *service layer* do `advanced-alchemy` (o mais próximo
 de Spring Data / Hibernate em Python): herdam CRUD e consultas prontos e recebem
 a `Session` de quem chama. Nenhum repositório resolve entidade de outro
-repositório (ex.: `QuestionRepository` não cria `Subject`/`Topic`) — essa
-orquestração é feita por `main.persist_questions`, preparação para um futuro
-Service.
+repositório (ex.: `QuestionRepository` não cria `Subject`/`Topic`/`QuestionFile`)
+— essa orquestração é feita por `main.persist_questions`, preparação para um
+futuro Service. `QuestionFileRepository` nunca baixa nada da rede: recebe os
+bytes já prontos de quem chama (`main.download_image`).
 
 `main.persist_questions` resolve a matéria de cada questão (normaliza o nome,
 `"Matemática"` → `MATEMATICA`, busca/cria via `SubjectRepository`), resolve os
 tópicos de cada questão (`dto.topics`) via `TopicRepository` — vinculados ao
-`subject_id` já resolvido, únicos **por matéria** e não globalmente — e só então
-chama `QuestionRepository.upsert_many` com o `subject_id` de cada questão já
-pronto, gravando a FK `question.subject_id`. Questão sem matéria → `ValueError`.
-As migrations ficam em `alembic/versions/`.
+`subject_id` já resolvido, únicos **por matéria** e não globalmente —, resolve
+as imagens referenciadas via `main.persist_images` (ver seção "Imagens" abaixo),
+e só então chama `QuestionRepository.upsert_many` com o `subject_id` de cada
+questão já pronto, gravando a FK `question.subject_id`. Questão sem matéria →
+`ValueError`. As migrations ficam em `alembic/versions/`.
 
 ```bash
 # Aplicar todas as migrations pendentes
@@ -115,7 +122,7 @@ alembic history
 alembic revision --autogenerate -m "descricao da mudanca"
 ```
 
-### Tabelas `subject`, `topic` e `question`
+### Tabelas `subject`, `topic`, `questionfile` e `question`
 
 `subject`: `id` (uuid, PK, `gen_random_uuid()`), `name` (varchar **único** — só a
 forma normalizada, ex.: `MATEMATICA`), `active` (boolean, default `true`),
@@ -142,6 +149,31 @@ ordem relativa** em que aparecem na página (não pelo valor numérico — o
 gabarito de uma página não necessariamente começa em 1). A letra não é
 restrita a A-E: questão anulada aparece como `X`, e descartá-la desalinharia
 a correlação das questões seguintes na mesma página.
+
+`questionfile`: `id` (uuid, PK), `question_number_id` (varchar, o `question_id`
+cru do scraper, ex.: `Q3761251`, sem FK), `url` (varchar, a URL original da
+imagem), `content` (bytea, o binário baixado), `active` (boolean, default
+`true`), `deleted` (boolean, default `false`, soft delete), `created_at` /
+`updated_at`. **Único pelo par** — `UNIQUE(question_number_id, url)`: a mesma
+URL citada por duas questões vira duas linhas. `active`/`deleted` existem para
+paridade com as outras tabelas; nenhum código hoje os seta ou filtra.
+
+### Imagens
+
+`enunciation`/`associated_text` trazem imagens como uma linha `[IMAGE] <url>`
+no meio do texto; `alternatives[letra].images` traz a URL direto numa lista.
+`main.persist_images` resolve, para cada leva de questões, os pares
+`(question_number_id, url)`: busca em `questionfile` os que já existem
+(`QuestionFileRepository.get_ids_by_pairs`); para os que faltam, reaproveita o
+binário se a URL já foi baixada por outra questão
+(`QuestionFileRepository.get_contents_by_urls`) e só então baixa o resto
+(`main.download_image`, via `requests`, com fallback silencioso em caso de
+falha); salva as linhas novas (`QuestionFileRepository.create_missing`). Cada
+questão ganha suas próprias linhas, mas a mesma URL nunca é baixada duas vezes.
+`main.replace_image_markers` devolve os DTOs com cada URL resolvida virando a
+**marcação padrão** `[IMAGE:{file_id}]` — é essa marcação que um código futuro
+deve procurar para saber onde reinserir a imagem. Uma URL cujo download falhou
+fica como estava (sem virar marcação), sem interromper o resto da leva.
 
 ## Execução do scraper
 

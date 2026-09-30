@@ -6,6 +6,7 @@ from main import persist_questions
 from question.dtos.question_scraped_dto import QuestionScrapedDTO
 from question.entity.question import Question
 from question.repository.upsert_result import UpsertResult
+from questionfile.entity.question_file import QuestionFile
 from shared.normalization import normalize_name
 from subject.entity.subject import Subject
 from topic.entity.topic import Topic
@@ -110,3 +111,61 @@ def test_persist_questions_returns_no_op_result_for_empty_list(db_session):
     result = persist_questions(db_session, [])
 
     assert result == UpsertResult(inserted=0, updated=0)
+
+
+def test_persist_questions_downloads_and_stores_image_replacing_the_marker(db_session):
+    url = f"https://example.com/{uuid.uuid4()}.png"
+    dto = _dto(
+        "Q1",
+        enunciation=f"Texto\n[IMAGE] {url}",
+        alternatives={"A": {"text": "1", "images": [url]}},
+    )
+
+    def fake_download(requested_url: str) -> bytes | None:
+        assert requested_url == url
+        return b"PNG-BYTES"
+
+    persist_questions(db_session, [dto], download=fake_download)
+
+    file_row = (
+        db_session.query(QuestionFile)
+        .filter_by(question_number_id="Q1", url=url)
+        .one()
+    )
+    assert file_row.content == b"PNG-BYTES"
+
+    question = db_session.query(Question).filter_by(question_id="Q1").one()
+    marker = f"[IMAGE:{file_row.id}]"
+    assert question.enunciation == f"Texto\n{marker}"
+    assert question.alternatives["A"]["images"] == [marker]
+
+
+def test_persist_questions_stores_one_row_per_question_but_downloads_once(db_session):
+    url = f"https://example.com/{uuid.uuid4()}.png"
+    calls = []
+
+    def fake_download(requested_url: str) -> bytes | None:
+        calls.append(requested_url)
+        return b"PNG-BYTES"
+
+    dto1 = _dto("Q1", enunciation=f"[IMAGE] {url}")
+    dto2 = _dto("Q2", enunciation=f"[IMAGE] {url}")
+
+    persist_questions(db_session, [dto1], download=fake_download)
+    persist_questions(db_session, [dto2], download=fake_download)
+
+    assert calls == [url]
+    rows = db_session.query(QuestionFile).filter_by(url=url).all()
+    assert {row.question_number_id for row in rows} == {"Q1", "Q2"}
+    assert {row.content for row in rows} == {b"PNG-BYTES"}
+
+
+def test_persist_questions_keeps_original_marker_when_download_fails(db_session):
+    url = f"https://example.com/{uuid.uuid4()}.png"
+    dto = _dto("Q1", enunciation=f"[IMAGE] {url}")
+
+    persist_questions(db_session, [dto], download=lambda _url: None)
+
+    assert db_session.query(QuestionFile).filter_by(url=url).count() == 0
+    question = db_session.query(Question).filter_by(question_id="Q1").one()
+    assert question.enunciation == f"[IMAGE] {url}"

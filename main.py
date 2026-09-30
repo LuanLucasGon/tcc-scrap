@@ -1,8 +1,11 @@
 import re
-from dataclasses import asdict
+from dataclasses import asdict, replace
+from typing import Callable
 from urllib.parse import urljoin
+from uuid import UUID
 
 import json
+import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import Browser, Locator, Page, Playwright, sync_playwright
 from sqlalchemy.orm import Session
@@ -11,8 +14,11 @@ from infra.database import SessionLocal
 from question.dtos.question_scraped_dto import QuestionScrapedDTO
 from question.repository.question_repository import QuestionRepository
 from question.repository.upsert_result import UpsertResult
+from questionfile.repository.question_file_repository import QuestionFileRepository
 from subject.repository.subject_repository import SubjectRepository
 from topic.repository.topic_repository import TopicRepository
+
+_IMAGE_MARKER_LINE = re.compile(r"^\[IMAGE\] (\S+)$", re.MULTILINE)
 
 BASE_URL: str = "https://www.qconcursos.com"
 URL_ENEM: str = "https://www.qconcursos.com/questoes-do-enem/questoes"
@@ -265,13 +271,151 @@ def save_to_json(questions: list[QuestionScrapedDTO], file_name: str) -> None:
     print(f"Saved {len(data)} question to file: {file_name}")
 
 
-def persist_questions(
-    session: Session, questions: list[QuestionScrapedDTO]
-) -> UpsertResult:
-    """Orquestra a persistência: resolve subject/topics e faz upsert das questões.
+def download_image(url: str) -> bytes | None:
+    """Baixa o binário de uma imagem. Devolve ``None`` em qualquer falha.
 
-    Preparação para um futuro Service — nenhum repositório resolve matéria ou
-    tópico de outro repositório; quem orquestra essa resolução é quem chama.
+    Falha de rede/timeout/status != 200 não deve derrubar o processamento do
+    resto da leva — a URL fica como fallback no lugar do marcador (ver
+    ``replace_image_markers``).
+    """
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as error:
+        print(f"Falha ao baixar imagem {url!r}: {error}")
+        return None
+    return response.content
+
+
+def find_image_urls(dto: QuestionScrapedDTO) -> set[str]:
+    """Coleta todas as URLs de imagem referenciadas por uma questão extraída.
+
+    Procura nas linhas ``[IMAGE] <url>`` de ``enunciation``/``associated_text``
+    e na lista ``images`` de cada alternativa.
+    """
+    urls = set(_IMAGE_MARKER_LINE.findall(dto.enunciation or ""))
+    urls.update(_IMAGE_MARKER_LINE.findall(dto.associated_text or ""))
+    for alternative in dto.alternatives.values():
+        urls.update(alternative.get("images", []))
+    return urls
+
+
+def replace_image_markers(
+    dto: QuestionScrapedDTO, file_id_by_url: dict[str, UUID]
+) -> QuestionScrapedDTO:
+    """Devolve uma cópia do dto com cada URL resolvida virando ``[IMAGE:{id}]``.
+
+    URL sem ``file_id`` correspondente (download falhou) fica como estava —
+    é o fallback para não perder a referência.
+    """
+
+    def _replace_in_text(text: str | None) -> str | None:
+        if not text:
+            return text
+
+        def _sub(match: re.Match[str]) -> str:
+            file_id = file_id_by_url.get(match.group(1))
+            return f"[IMAGE:{file_id}]" if file_id else match.group(0)
+
+        return _IMAGE_MARKER_LINE.sub(_sub, text)
+
+    def _replace_in_alternatives(
+        alternatives: dict[str, dict[str, object]],
+    ) -> dict[str, dict[str, object]]:
+        return {
+            letter: {
+                **alternative,
+                "images": [
+                    f"[IMAGE:{file_id_by_url[url]}]" if url in file_id_by_url else url
+                    for url in alternative.get("images", [])
+                ],
+            }
+            for letter, alternative in alternatives.items()
+        }
+
+    return replace(
+        dto,
+        enunciation=_replace_in_text(dto.enunciation),
+        associated_text=_replace_in_text(dto.associated_text),
+        alternatives=_replace_in_alternatives(dto.alternatives),
+    )
+
+
+def persist_images(
+    session: Session,
+    questions: list[QuestionScrapedDTO],
+    *,
+    download: Callable[[str], bytes | None] = download_image,
+) -> list[QuestionScrapedDTO]:
+    """Baixa as imagens ainda não salvas e devolve os DTOs com os marcadores.
+
+    Faz o mesmo tipo de resolução que ``SubjectRepository``/``TopicRepository``
+    fazem para matéria/tópico — só que aqui o "criar o que falta" envolve uma
+    chamada de rede (``download``), por isso fica isolado deste jeito: o
+    ``QuestionFileRepository`` continua sem saber nada de HTTP, só persiste
+    bytes que já chegam prontos.
+
+    A identidade de cada arquivo é o par ``(question_number_id, url)``: a mesma
+    URL citada por duas questões vira duas linhas. O download, porém, acontece
+    uma vez só — se a URL já tem binário salvo (por qualquer questão), esses
+    bytes são reaproveitados em vez de baixar de novo.
+    """
+    files = QuestionFileRepository(session=session)
+
+    urls_by_question = {dto.question_id: find_image_urls(dto) for dto in questions}
+    all_pairs = sorted(
+        {
+            (question_id, url)
+            for question_id, urls in urls_by_question.items()
+            for url in urls
+        }
+    )
+    if not all_pairs:
+        return questions
+
+    file_id_by_pair = files.get_ids_by_pairs(all_pairs)
+
+    missing_pairs = [pair for pair in all_pairs if pair not in file_id_by_pair]
+    missing_urls = sorted({url for _question_id, url in missing_pairs})
+
+    content_by_url = files.get_contents_by_urls(missing_urls)
+    for url in missing_urls:
+        if url in content_by_url:
+            continue
+        content = download(url)
+        if content is not None:
+            content_by_url[url] = content
+
+    to_create = {
+        (question_id, url): content_by_url[url]
+        for question_id, url in missing_pairs
+        if url in content_by_url
+    }
+    file_id_by_pair.update(files.create_missing(to_create))
+
+    return [
+        replace_image_markers(
+            dto,
+            {
+                url: file_id_by_pair[(dto.question_id, url)]
+                for url in urls_by_question[dto.question_id]
+                if (dto.question_id, url) in file_id_by_pair
+            },
+        )
+        for dto in questions
+    ]
+
+
+def persist_questions(
+    session: Session,
+    questions: list[QuestionScrapedDTO],
+    *,
+    download: Callable[[str], bytes | None] = download_image,
+) -> UpsertResult:
+    """Orquestra a persistência: resolve subject/topics/imagens e faz upsert.
+
+    Preparação para um futuro Service — nenhum repositório resolve entidade
+    de outro repositório; quem orquestra essa resolução é quem chama.
     """
     if not questions:
         return UpsertResult(inserted=0, updated=0)
@@ -289,6 +433,8 @@ def persist_questions(
     for dto in questions:
         if dto.topics:
             topics.get_or_create_many(subject_id_by_name[dto.subject], dto.topics)
+
+    questions = persist_images(session, questions, download=download)
 
     return question_repository.upsert_many(questions, subject_id_by_name)
 

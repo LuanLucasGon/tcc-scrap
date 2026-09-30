@@ -10,6 +10,7 @@ from infra.database import Base, get_database_url
 from subject.entity.subject import Subject  # noqa: F401
 from question.entity.question import Question  # noqa: F401
 from topic.entity.topic import Topic  # noqa: F401
+from questionfile.entity.question_file import QuestionFile  # noqa: F401
 
 
 def _database_reachable(url: str) -> bool:

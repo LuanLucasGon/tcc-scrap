@@ -11,6 +11,7 @@ from infra.database import Base, get_database_url
 from subject.entity import subject  # noqa: F401
 from question.entity import question  # noqa: F401
 from topic.entity import topic  # noqa: F401
+from questionfile.entity import question_file  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
